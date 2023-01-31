@@ -46,3 +46,8 @@ body {
 	font-family: var(--ff-primary);
 	font-weight: var(--fw-regular);
 }
+
+.input-container {
+	display: flex;
+	flex-direction: column;
+}
