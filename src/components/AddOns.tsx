@@ -1,14 +1,15 @@
 import React from 'react';
 import SectionHeading from './SectionHeading';
+import styles from './addOns.module.scss';
 
-const AddOns = () => {
+const AddOns = ({ step }: { step: number }) => {
 	return (
-		<div>
+		<section className={`${styles.AddOnsContainer} ${step}`}>
 			<SectionHeading
 				title="Pick add-ons"
 				info="Add-ons help enhance your gaming experience."
 			/>
-		</div>
+		</section>
 	);
 };
 

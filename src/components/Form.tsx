@@ -15,6 +15,10 @@ const Form = () => {
 		setStep((prev) => prev + 1);
 	};
 
+	const handleBack: MouseEventHandler<HTMLButtonElement> = () => {
+		setStep((prev) => prev - 1);
+	};
+
 	useEffect(() => {
 		console.log(step);
 	}, [step]);
@@ -23,11 +27,16 @@ const Form = () => {
 		<main>
 			<div>
 				<form className={styles.infoForm}>
-					<PersonalInfo />
-					<Plan />
-					<AddOns />
-					<Summary />
+					{step === 1 && <PersonalInfo step={1} />}
+					{step === 2 && <Plan step={2} />}
+					{step === 3 && <AddOns step={3} />}
+					{step === 4 && <Summary />}
 				</form>
+				{step !== 1 && (
+					<button type="button" onClick={handleBack}>
+						Back
+					</button>
+				)}
 				<button type="button" onClick={handleNextStep}>
 					Next step
 				</button>

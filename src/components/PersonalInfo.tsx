@@ -1,9 +1,9 @@
 import styles from './personalInfo.module.scss';
 import SectionHeading from './SectionHeading';
 
-const PersonalInfo = () => {
+const PersonalInfo = ({ step }: { step: number }) => {
 	return (
-		<section className={styles.personalInfoContainer}>
+		<section className={`${styles.personalInfoContainer} ${step}`}>
 			<SectionHeading
 				title="Personal Info"
 				info="Please provide your name, email address, and phone number."
