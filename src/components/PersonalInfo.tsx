@@ -3,7 +3,9 @@ import SectionHeading from './SectionHeading';
 
 const PersonalInfo = ({ step }: { step: number }) => {
 	return (
-		<section className={`${styles.personalInfoContainer} ${step}`}>
+		<section
+			className={`${styles.personalInfoContainer} ${step} section-container`}
+		>
 			<SectionHeading
 				title="Personal Info"
 				info="Please provide your name, email address, and phone number."

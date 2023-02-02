@@ -45,6 +45,7 @@ html {
 body {
 	font-family: var(--ff-primary);
 	font-weight: var(--fw-regular);
+	background-color: var(--clr-neutral-300);
 }
 
 .input-container {
@@ -56,4 +57,12 @@ body {
 	display: flex;
 	gap: 3rem;
 	border: 1px solid var(--clr-neutral-700);
+}
+
+.section-container {
+	margin-inline: 1.6rem;
+	padding-inline: 2.4rem;
+	background-color: var(--clr-neutral-100);
+	border-radius: 10px;
+	box-shadow: 0px 25px 40px -20px rgba(0, 0, 0, 0.0951141);
 }

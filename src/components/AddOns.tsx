@@ -4,7 +4,7 @@ import styles from './addOns.module.scss';
 
 const AddOns = ({ step }: { step: number }) => {
 	return (
-		<section className={`${styles.AddOnsContainer} ${step}`}>
+		<section className={`${styles.AddOnsContainer} ${step} section-container`}>
 			<SectionHeading
 				title="Pick add-ons"
 				info="Add-ons help enhance your gaming experience."
