@@ -4,4 +4,7 @@
 	background-color: var(--clr-neutral-100);
 	padding: 1.6rem;
 	margin-top: 2.4rem;
+	@media (min-width: 700px) {
+		grid-column: 2;
+	}
 }

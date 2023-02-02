@@ -7,6 +7,13 @@
 
 	height: 17.2rem;
 
+	@media (min-width: 700px) {
+		background: url('../assets/images/bg-sidebar-desktop.svg') no-repeat;
+		grid-row: 1 / span 2;
+		justify-content: flex-start;
+		height: auto;
+	}
+
 	.steps {
 		display: flex;
 		gap: 1.6rem;
@@ -14,5 +21,10 @@
 		color: var(--clr-neutral-100);
 		font-weight: 700;
 		font-size: 1.4rem;
+		@media (min-width: 700px) {
+			flex-direction: column;
+			margin-left: 3.2rem;
+			margin-top: 4rem;
+		}
 	}
 }
