@@ -1,4 +1,3 @@
-import React, { MouseEventHandler, useEffect, useState } from 'react';
 import AddOns from './AddOns';
 import styles from './form.module.scss';
 import PersonalInfo from './PersonalInfo';

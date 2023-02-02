@@ -1,6 +1,18 @@
 .header {
+	display: flex;
+	justify-content: center;
+
 	background: url('../assets/images/bg-sidebar-mobile.svg') 50% / cover
 		no-repeat;
 
 	height: 17.2rem;
+
+	.steps {
+		display: flex;
+		gap: 1.6rem;
+		margin-top: 3.2rem;
+		color: var(--clr-neutral-100);
+		font-weight: 700;
+		font-size: 1.4rem;
+	}
 }

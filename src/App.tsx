@@ -22,8 +22,8 @@ function App() {
 	}, [step]);
 
 	return (
-		<div>
-			<Header />
+		<div className="App">
+			<Header step={step} />
 			<Form step={step} />
 			<Footer
 				step={step}

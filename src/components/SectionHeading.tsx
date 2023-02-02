@@ -7,7 +7,7 @@ type Props = {
 
 const SectionHeading = ({ title, info }: Props) => {
 	return (
-		<div className="">
+		<div className="section-heading">
 			<h1>{title}</h1>
 			<p>{info}</p>
 		</div>
