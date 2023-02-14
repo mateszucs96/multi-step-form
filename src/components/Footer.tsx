@@ -11,12 +11,20 @@ const Footer = ({ step, handleBack, handleNextStep }: Props) => {
 	return (
 		<footer className={styles.footer}>
 			{step !== 1 && (
-				<button type="button" onClick={handleBack}>
+				<button
+					type="button"
+					className={styles.backButton}
+					onClick={handleBack}
+				>
 					Go Back
 				</button>
 			)}
 			{step !== 4 && (
-				<button type="button" onClick={handleNextStep}>
+				<button
+					type="button"
+					className={styles.nextButton}
+					onClick={handleNextStep}
+				>
 					Next step
 				</button>
 			)}

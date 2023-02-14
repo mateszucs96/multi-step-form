@@ -2,6 +2,7 @@ import { MouseEventHandler, useEffect, useState } from 'react';
 import Footer from './components/Footer';
 import Form from './components/Form';
 import Header from './components/Header';
+import { useForm } from './hooks/useForm';
 
 const FORM_STEPS = 4;
 
@@ -16,10 +17,6 @@ function App() {
 	const handleBack: MouseEventHandler<HTMLButtonElement> = () => {
 		setStep((prev) => prev - 1);
 	};
-
-	useEffect(() => {
-		console.log(step);
-	}, [step]);
 
 	return (
 		<div className="App">

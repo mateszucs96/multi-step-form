@@ -30,6 +30,12 @@
 	--lh-700: 4rem;
 }
 
+@media (min-width: 700px) {
+	:root {
+		--fs-heading: 3.2rem;
+	}
+}
+
 *,
 *::before,
 *::after {
@@ -43,6 +49,13 @@ html {
 	box-sizing: border-box;
 }
 
+#root {
+	@media (min-width: 700px) {
+		display: flex;
+		height: 100vh;
+	}
+}
+
 body {
 	font-size: 1.6rem;
 	font-family: var(--ff-primary);
@@ -51,11 +64,28 @@ body {
 	background-color: var(--clr-neutral-300);
 }
 
+h1 {
+	font-size: var(--fs-heading);
+}
+
+button {
+	font-size: var(--fs-body-m);
+	padding: 1.2rem 1.6rem;
+}
+
 .App {
 	display: grid;
+	width: 100%;
+	max-width: 94rem;
+	max-height: 60rem;
+	margin: auto;
+
 	@media (min-width: 700px) {
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 27.4rem 1fr;
 		grid-template-rows: 1fr 1fr;
+		background-color: var(--clr-neutral-100);
+		padding: 1.6rem;
+		border-radius: 15px;
 	}
 }
 
@@ -75,11 +105,14 @@ body {
 	margin-inline: 1.6rem;
 	padding: 3.2rem 2.4rem;
 	background-color: var(--clr-neutral-100);
+
+	justify-self: center;
 	border-radius: 10px;
 	box-shadow: 0px 25px 40px -20px rgba(0, 0, 0, 0.0951141);
 	margin-top: -7.5rem;
 	@media (min-width: 700px) {
-		margin-top: 0;
+		max-width: 45rem;
+		margin: 0 auto;
 	}
 }
 
@@ -87,6 +120,13 @@ body {
 	margin-bottom: 2.2rem;
 	h1 {
 		margin-bottom: 0.9rem;
+	}
+
+	@media (min-width: 700px) {
+		margin-bottom: 4rem;
+		h1 {
+			margin-bottom: 1.1rem;
+		}
 	}
 }
 
