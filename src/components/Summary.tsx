@@ -4,8 +4,8 @@ const Summary = () => {
 	return (
 		<div>
 			<SectionHeading
-				title="Finishing up"
-				info="Double-check everything looks OK before confirming."
+				title='Finishing up'
+				info='Double-check everything looks OK before confirming.'
 			/>
 		</div>
 	);

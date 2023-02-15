@@ -1,8 +1,8 @@
-import { MouseEventHandler, useEffect, useState } from 'react';
+import { MouseEventHandler, useState } from 'react';
 import Footer from './components/Footer';
 import Form from './components/Form';
 import Header from './components/Header';
-import { useForm } from './hooks/useForm';
+
 
 const FORM_STEPS = 4;
 
