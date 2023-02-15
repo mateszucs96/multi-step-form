@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import styles from './personalInfo.module.scss';
 import SectionHeading from './SectionHeading';
 import { ChangeEvent } from 'react';
