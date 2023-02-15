@@ -14,12 +14,16 @@ type Props = {
 		name?: string,
 		email?: string,
 		phoneNumber?: string,
-		plan: number
+		plan: {
+			selected: number,
+			isMonthly: boolean,
+		};
 	};
 	handlePlanSelect: (e: React.MouseEvent<HTMLDivElement>) => void;
 	handlePlanToggle: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 const Plan = ({ step, formInput, handlePlanSelect, isMonthly, handlePlanToggle }: Props) => {
+
 	return (
 		<section className={`${styles.PlanContainer} ${step} section-container`}>
 			<SectionHeading
@@ -27,9 +31,11 @@ const Plan = ({ step, formInput, handlePlanSelect, isMonthly, handlePlanToggle }
 				info='You have the option of monthly or yearly billing.'
 			/>
 			<div className={styles.plans}>
-				<div className={`${styles.planCard} ${formInput.plan === 1 ? styles.selected : ''} `}
+				<div className={`${styles.planCard} ${formInput.plan.selected === 1 ? styles.selected : ''} `}
 						 onClick={(e) => {
+
 							 handlePlanSelect(e);
+							 console.log(e.currentTarget.dataset);
 						 }} data-attr='1'>
 
 					<img src={iconArcade} alt='Arcade-icon' />
@@ -40,9 +46,11 @@ const Plan = ({ step, formInput, handlePlanSelect, isMonthly, handlePlanToggle }
 						</p>
 					</div>
 				</div>
-				<div className={`${styles.planCard} ${formInput.plan === 2 ? styles.selected : ''}`}
+				<div className={`${styles.planCard} ${formInput.plan.selected === 2 ? styles.selected : ''}`}
 						 onClick={(e) => {
+
 							 handlePlanSelect(e);
+
 						 }} data-attr='2'>
 					<img src={iconAdvanced} alt='Advanced-icon' />
 					<div>
@@ -52,7 +60,7 @@ const Plan = ({ step, formInput, handlePlanSelect, isMonthly, handlePlanToggle }
 						</p>
 					</div>
 				</div>
-				<div className={`${styles.planCard} ${formInput.plan === 3 ? styles.selected : ''}`}
+				<div className={`${styles.planCard} ${formInput.plan.selected === 3 ? styles.selected : ''}`}
 					/* eslint-disable-next-line no-mixed-spaces-and-tabs */
 						 onClick={(e) => {
 							 handlePlanSelect(e);
@@ -66,7 +74,7 @@ const Plan = ({ step, formInput, handlePlanSelect, isMonthly, handlePlanToggle }
 					</div>
 				</div>
 				<div className={styles.toggleContainer}>
-					<p className={`${isMonthly ? styles.active : ''}`}>Monthly</p>
+					<p className={`${formInput.plan.isMonthly ? styles.active : ''}`}>Monthly</p>
 					<div className={`${styles.toggle}`} style={{ justifyContent: isMonthly ? 'flex-start' : 'flex-end' }}
 							 onClick={(e) => {
 								 handlePlanToggle(e);
@@ -75,7 +83,7 @@ const Plan = ({ step, formInput, handlePlanSelect, isMonthly, handlePlanToggle }
 							 }>
 						<div className={styles.circle}></div>
 					</div>
-					<p className={`${isMonthly ? '' : styles.active}`}>Yearly</p>
+					<p className={`${formInput.plan.isMonthly ? '' : styles.active}`}>Yearly</p>
 				</div>
 			</div>
 		</section>

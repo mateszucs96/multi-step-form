@@ -10,7 +10,10 @@ type Props = {
 		name?: string,
 		email?: string,
 		phoneNumber?: string,
-		plan: number,
+		plan: {
+			selected: number,
+			isMonthly: boolean,
+		}
 	};
 
 	handleInputChange: (e: ChangeEvent<HTMLInputElement>) => void;

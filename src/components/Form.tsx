@@ -7,7 +7,6 @@ import Summary from './Summary';
 
 const Form = ({ step }: { step: number }) => {
 	const {
-		isMonthly,
 		formInput,
 		handleInputChange,
 		handlePlanSelect,
@@ -25,7 +24,8 @@ const Form = ({ step }: { step: number }) => {
 							handleInputChange={handleInputChange}
 						/>
 					)}
-					{step === 2 && <Plan step={2} handlePlanSelect={handlePlanSelect} formInput={formInput} isMonthly={isMonthly}
+					{step === 2 && <Plan step={2} handlePlanSelect={handlePlanSelect} formInput={formInput}
+															 isMonthly={formInput.plan.isMonthly}
 															 handlePlanToggle={handlePlanToggle} />}
 					{step === 3 && <AddOns step={3} />}
 					{step === 4 && <Summary />}

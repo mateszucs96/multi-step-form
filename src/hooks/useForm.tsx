@@ -1,9 +1,11 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 
 export const useForm = () => {
-	const [isMonthly, setIsMonthly] = useState(true);
 	const [formInput, setFormInput] = useState({
-		plan: 0,
+		plan: {
+			selected: 0,
+			isMonthly: true,
+		},
 	});
 
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -11,17 +13,29 @@ export const useForm = () => {
 	};
 
 	const handlePlanSelect = (e: React.MouseEvent<HTMLDivElement>) => {
-		setFormInput({ ...formInput, plan: Number(e.currentTarget.dataset.attr) });
+		const clicked = Number(e.currentTarget.dataset.attr);
+		setFormInput(prevState => ({
+			...prevState,
+			plan: {
+				...prevState.plan,
+				selected: clicked,
+			},
+		}));
 	};
 	const handlePlanToggle = (e: React.MouseEvent<HTMLDivElement>) => {
-		setIsMonthly(prevState => !prevState);
+		setFormInput(prevState => ({
+			...prevState,
+			plan: {
+				...prevState.plan,
+				isMonthly: !prevState.plan.isMonthly,
+			},
+		}));
 	};
 	useEffect(() => {
 		console.log(formInput);
 	}, [formInput]);
 
 	return {
-		isMonthly,
 		formInput,
 		handleInputChange,
 		handlePlanSelect,
