@@ -10,7 +10,7 @@ type Props = {
 		name: string,
 		email: string,
 		phoneNumber: string,
-		plan: object,
+		plan: number,
 	};
 	handleEmailInput: (e: ChangeEvent<HTMLInputElement>) => void;
 	handleNameInput: (e: ChangeEvent<HTMLInputElement>) => void;

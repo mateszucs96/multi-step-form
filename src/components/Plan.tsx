@@ -1,18 +1,40 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 import styles from './plan.module.scss';
 import SectionHeading from './SectionHeading';
 import iconAdvanced from '../assets/images/icon-advanced.svg';
 import iconArcade from '../assets/images/icon-arcade.svg';
 import iconPro from '../assets/images/icon-pro.svg';
-import React, { MouseEventHandler, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useForm } from '../hooks/useForm';
 
-const Plan = ({ step }: { step: number }) => {
-	const [selectedCard, setSelectedCard] = useState<number | null>(null);
+type Props = {
+	step: number;
+	isMonthly: boolean;
+	formInput: {
+		name: string,
+		email: string,
+		phoneNumber: string,
+		plan: number,
 
+	};
+	handlePlanSelect: (e: React.MouseEvent<HTMLDivElement>) => void;
+	handlePlanToggle: (e: React.MouseEvent<HTMLDivElement>) => void;
+}
+const Plan = ({ step, formInput, handlePlanSelect, isMonthly, handlePlanToggle }: Props) => {
+	/*const [isMonthly, setIsMonthly] = useState(true);
 
-	const handleSelectedCard = (idx: number) => {
-		selectedCard === idx ? setSelectedCard(null) : setSelectedCard(idx);
+	const togglePlan = (e: React.MouseEvent<HTMLDivElement>) => {
+		setIsMonthly(prev => !prev);
+		!isMonthly ? e.currentTarget.style.justifyContent = 'flex-end' : e.currentTarget.style.justifyContent = 'flex-start';
+		console.log(isMonthly);
 	};
 
+	 */
+
+
+	useEffect(() => {
+		console.log(isMonthly);
+	}, [isMonthly]);
 
 	return (
 		<section className={`${styles.PlanContainer} ${step} section-container`}>
@@ -21,9 +43,10 @@ const Plan = ({ step }: { step: number }) => {
 				info='You have the option of monthly or yearly billing.'
 			/>
 			<div className={styles.plans}>
-				<div className={`${styles.planCard} ${selectedCard === 1 ? styles.selected : ''}`}
-					/* eslint-disable-next-line no-mixed-spaces-and-tabs */
-						 onClick={() => handleSelectedCard(1)}>
+				<div className={`${styles.planCard} ${formInput.plan === 1 ? styles.selected : ''} `}
+						 onClick={(e) => {
+							 handlePlanSelect(e);
+						 }} data-attr='1'>
 
 					<img src={iconArcade} alt='Arcade-icon' />
 					<div>
@@ -33,27 +56,42 @@ const Plan = ({ step }: { step: number }) => {
 						</p>
 					</div>
 				</div>
-				<div className={`${styles.planCard} ${selectedCard === 2 ? styles.selected : ''}`}
-					/* eslint-disable-next-line no-mixed-spaces-and-tabs */
-						 onClick={() => handleSelectedCard(2)}>
+				<div className={`${styles.planCard} ${formInput.plan === 2 ? styles.selected : ''}`}
+						 onClick={(e) => {
+							 handlePlanSelect(e);
+						 }} data-attr='2'>
 					<img src={iconAdvanced} alt='Advanced-icon' />
 					<div>
 						<h3>Advanced</h3>
 						<p>
-							$<span>9</span>/mo
+							$<span>12</span>/mo
 						</p>
 					</div>
 				</div>
-				<div className={`${styles.planCard} ${selectedCard === 3 ? styles.selected : ''}`}
+				<div className={`${styles.planCard} ${formInput.plan === 3 ? styles.selected : ''}`}
 					/* eslint-disable-next-line no-mixed-spaces-and-tabs */
-						 onClick={() => handleSelectedCard(3)}>
+						 onClick={(e) => {
+							 handlePlanSelect(e);
+						 }} data-attr='3'>
 					<img src={iconPro} alt='Pro-icon' />
 					<div>
-						<h3>Proc</h3>
+						<h3>Pro</h3>
 						<p>
-							$<span>9</span>/mo
+							$<span>15</span>/mo
 						</p>
 					</div>
+				</div>
+				<div className={styles.toggleContainer}>
+					<p className={`${isMonthly ? styles.active : ''}`}>Monthly</p>
+					<div className={`${styles.toggle}`} style={{ justifyContent: isMonthly ? 'flex-start' : 'flex-end' }}
+							 onClick={(e) => {
+								 handlePlanToggle(e);
+
+							 }
+							 }>
+						<div className={styles.circle}></div>
+					</div>
+					<p className={`${isMonthly ? '' : styles.active}`}>Yearly</p>
 				</div>
 			</div>
 		</section>
