@@ -9,9 +9,7 @@ const Form = ({ step }: { step: number }) => {
 	const {
 		isMonthly,
 		formInput,
-		handleEmailInput,
-		handleNameInput,
-		handlePhoneInput,
+		handleInputChange,
 		handlePlanSelect,
 		handlePlanToggle,
 	} =
@@ -24,9 +22,7 @@ const Form = ({ step }: { step: number }) => {
 						<PersonalInfo
 							step={1}
 							formInput={formInput}
-							handleEmailInput={handleEmailInput}
-							handleNameInput={handleNameInput}
-							handlePhoneInput={handlePhoneInput}
+							handleInputChange={handleInputChange}
 						/>
 					)}
 					{step === 2 && <Plan step={2} handlePlanSelect={handlePlanSelect} formInput={formInput} isMonthly={isMonthly}

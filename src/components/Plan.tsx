@@ -11,31 +11,15 @@ type Props = {
 	step: number;
 	isMonthly: boolean;
 	formInput: {
-		name: string,
-		email: string,
-		phoneNumber: string,
-		plan: number,
-
+		name?: string,
+		email?: string,
+		phoneNumber?: string,
+		plan: number
 	};
 	handlePlanSelect: (e: React.MouseEvent<HTMLDivElement>) => void;
 	handlePlanToggle: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 const Plan = ({ step, formInput, handlePlanSelect, isMonthly, handlePlanToggle }: Props) => {
-	/*const [isMonthly, setIsMonthly] = useState(true);
-
-	const togglePlan = (e: React.MouseEvent<HTMLDivElement>) => {
-		setIsMonthly(prev => !prev);
-		!isMonthly ? e.currentTarget.style.justifyContent = 'flex-end' : e.currentTarget.style.justifyContent = 'flex-start';
-		console.log(isMonthly);
-	};
-
-	 */
-
-
-	useEffect(() => {
-		console.log(isMonthly);
-	}, [isMonthly]);
-
 	return (
 		<section className={`${styles.PlanContainer} ${step} section-container`}>
 			<SectionHeading
