@@ -6,6 +6,7 @@ export const useForm = () => {
 			selected: 0,
 			isMonthly: true,
 		},
+		addOns: {},
 	});
 
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -20,9 +21,14 @@ export const useForm = () => {
 				...prevState.plan,
 				selected: clicked,
 			},
+			addOns: {
+				'online-service': false,
+				'larger-storage': false,
+				'custom-profile': false,
+			},
 		}));
 	};
-	const handlePlanToggle = (e: React.MouseEvent<HTMLDivElement>) => {
+	const handlePlanToggle = () => {
 		setFormInput(prevState => ({
 			...prevState,
 			plan: {
@@ -31,6 +37,20 @@ export const useForm = () => {
 			},
 		}));
 	};
+
+	const handleCheckboxes = (e: ChangeEvent<HTMLInputElement>) => {
+		const addOn = e.currentTarget.name;
+		const isChecked = e.currentTarget.checked;
+		setFormInput(prevState => ({
+			...prevState,
+			addOns: {
+				...prevState.addOns,
+				[addOn]: isChecked,
+			},
+		}));
+		console.log(e);
+	};
+
 	useEffect(() => {
 		console.log(formInput);
 	}, [formInput]);
@@ -40,5 +60,6 @@ export const useForm = () => {
 		handleInputChange,
 		handlePlanSelect,
 		handlePlanToggle,
+		handleCheckboxes,
 	};
 };

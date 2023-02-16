@@ -11,6 +11,7 @@ const Form = ({ step }: { step: number }) => {
 		handleInputChange,
 		handlePlanSelect,
 		handlePlanToggle,
+		handleCheckboxes,
 	} =
 		useForm();
 	return (
@@ -27,7 +28,7 @@ const Form = ({ step }: { step: number }) => {
 					{step === 2 && <Plan step={2} handlePlanSelect={handlePlanSelect} formInput={formInput}
 															 isMonthly={formInput.plan.isMonthly}
 															 handlePlanToggle={handlePlanToggle} />}
-					{step === 3 && <AddOns step={3} />}
+					{step === 3 && <AddOns step={3} formInput={formInput} handleCheckboxes={handleCheckboxes} />}
 					{step === 4 && <Summary />}
 				</form>
 			</div>
