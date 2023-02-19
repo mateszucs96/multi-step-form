@@ -6,7 +6,11 @@ export const useForm = () => {
 			selected: 0,
 			isMonthly: true,
 		},
-		addOns: {},
+		addOns: {
+			'Online service': false,
+			'Larger storage': false,
+			'Customizable Profile': false,
+		},
 	});
 
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -21,11 +25,13 @@ export const useForm = () => {
 				...prevState.plan,
 				selected: clicked,
 			},
+			/*
 			addOns: {
 				'online-service': false,
 				'larger-storage': false,
 				'custom-profile': false,
 			},
+			 */
 		}));
 	};
 	const handlePlanToggle = () => {

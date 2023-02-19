@@ -12,9 +12,9 @@ type Props = {
 			isMonthly: boolean,
 		};
 		addOns: {
-			'online-service': boolean,
-			'larger-storage': boolean,
-			'custom-profile': boolean,
+			'Online service': boolean,
+			'Larger storage': boolean,
+			'Customizable profile': boolean,
 		}
 	};
 	step: number,
@@ -29,8 +29,8 @@ const AddOns = ({ formInput, step, handleCheckboxes }: Props) => {
 			/>
 			<div className={styles.addOns}>
 				<div className={`${styles.onlineService} checkboxContainer`}>
-					<input type='checkbox' id='online-service' name='online-service'
-								 checked={formInput.addOns['online-service'] || false}
+					<input type='checkbox' id='Online service' name='Online service'
+								 checked={formInput.addOns['Online service'] || false}
 								 onChange={handleCheckboxes} />
 					<label htmlFor='online-service'>
 						<h3>Online service</h3>
@@ -38,8 +38,8 @@ const AddOns = ({ formInput, step, handleCheckboxes }: Props) => {
 					</label>
 				</div>
 				<div className={`${styles.largerStorage} checkboxContainer`}>
-					<input type='checkbox' id='larger-storage' name='larger-storage'
-								 checked={formInput.addOns['larger-storage'] || false}
+					<input type='checkbox' id='Larger storage' name='Larger storage'
+								 checked={formInput.addOns['Larger storage'] || false}
 								 onChange={handleCheckboxes} />
 					<label htmlFor='larger-storage'>
 						<h3>Larger storage</h3>
@@ -47,8 +47,8 @@ const AddOns = ({ formInput, step, handleCheckboxes }: Props) => {
 					</label>
 				</div>
 				<div className={`${styles.customProfile} checkboxContainer`}>
-					<input type='checkbox' id='custom-profile' name='custom-profile'
-								 checked={formInput.addOns['custom-profile'] || false}
+					<input type='checkbox' id='Custom profile' name='Customizable profile'
+								 checked={formInput.addOns['Customizable profile'] || false}
 								 onChange={handleCheckboxes} />
 					<label htmlFor='custom-profile'>
 						<h3>Customizable profile</h3>

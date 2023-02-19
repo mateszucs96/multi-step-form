@@ -29,7 +29,7 @@ const Form = ({ step }: { step: number }) => {
 															 isMonthly={formInput.plan.isMonthly}
 															 handlePlanToggle={handlePlanToggle} />}
 					{step === 3 && <AddOns step={3} formInput={formInput} handleCheckboxes={handleCheckboxes} />}
-					{step === 4 && <Summary />}
+					{step === 4 && <Summary formInput={formInput} />}
 				</form>
 			</div>
 		</main>
