@@ -2,12 +2,13 @@ import { useForm } from '../hooks/useForm';
 import AddOns from './AddOns';
 import styles from './form.module.scss';
 import PersonalInfo from './PersonalInfo';
-import Plan from './Plan';
+import Plans from './Plans';
 import Summary from './Summary';
 
 const Form = ({ step }: { step: number }) => {
 	const {
 		formInput,
+		prices,
 		handleInputChange,
 		handlePlanSelect,
 		handlePlanToggle,
@@ -25,9 +26,9 @@ const Form = ({ step }: { step: number }) => {
 							handleInputChange={handleInputChange}
 						/>
 					)}
-					{step === 2 && <Plan step={2} handlePlanSelect={handlePlanSelect} formInput={formInput}
-															 isMonthly={formInput.plan.isMonthly}
-															 handlePlanToggle={handlePlanToggle} />}
+					{step === 2 && <Plans step={2} handlePlanSelect={handlePlanSelect} formInput={formInput}
+																isMonthly={formInput.plan.isMonthly}
+																handlePlanToggle={handlePlanToggle} prices={prices} />}
 					{step === 3 && <AddOns step={3} formInput={formInput} handleCheckboxes={handleCheckboxes} />}
 					{step === 4 && <Summary formInput={formInput} />}
 				</form>

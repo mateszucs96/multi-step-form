@@ -37,12 +37,10 @@ const Summary = ({ formInput }: Props) => {
 				{formInput.plan.selected === 3 && <p>Pro<span>{formInput.plan.isMonthly ? '(Monthly)' : '(Yearly)'}</span></p>}
 				<ul>
 					{Object.entries(formInput.addOns).map(([key, value], i) => (
-
 						value &&
 						<li className='plan' key={i}>
 							{key}
 						</li>
-
 					))}
 				</ul>
 			</div>

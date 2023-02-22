@@ -1,7 +1,19 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 
+export type Inputs = {
+	plan: {
+		selected: number;
+		isMonthly: boolean;
+	}
+	addOns: {
+		'Online service': boolean;
+		'Larger storage': boolean;
+		'Customizable profile': boolean
+	}
+}
+
 export const useForm = () => {
-	const [formInput, setFormInput] = useState({
+	const [formInput, setFormInput] = useState<Inputs>({
 		plan: {
 			selected: 0,
 			isMonthly: true,
@@ -9,7 +21,7 @@ export const useForm = () => {
 		addOns: {
 			'Online service': false,
 			'Larger storage': false,
-			'Customizable Profile': false,
+			'Customizable profile': false,
 		},
 	});
 
@@ -54,7 +66,7 @@ export const useForm = () => {
 				[addOn]: isChecked,
 			},
 		}));
-		console.log(e);
+		console.log(e.currentTarget.name);
 	};
 
 	useEffect(() => {
