@@ -37,13 +37,6 @@ export const useForm = () => {
 				...prevState.plan,
 				selected: clicked,
 			},
-			/*
-			addOns: {
-				'online-service': false,
-				'larger-storage': false,
-				'custom-profile': false,
-			},
-			 */
 		}));
 	};
 	const handlePlanToggle = () => {
