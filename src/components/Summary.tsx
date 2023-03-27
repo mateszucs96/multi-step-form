@@ -1,16 +1,10 @@
 import SectionHeading from './SectionHeading';
-import { ChangeEvent } from 'react';
-import { ADDONS, PLANS, PlansType } from '../store/options';
-import AddOns from './AddOns';
-import Plans from './Plans';
+import { ADDONS, PLANS } from '../store/options';
 import { Inputs } from '../hooks/useForm';
-import addOns from './AddOns';
-import addOn from './AddOn';
 
 type Props = {
 	formInput: Inputs;
-	step: number,
-	handleCheckboxes: (e: ChangeEvent<HTMLInputElement>) => void;
+
 }
 const Summary = ({ formInput }: Props) => {
 	const getTotalPrice = (): number => {

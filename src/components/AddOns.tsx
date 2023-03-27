@@ -7,10 +7,11 @@ import { Inputs } from '../hooks/useForm';
 
 type Props = {
 	formInput: Inputs;
-	step: number,
+	step: number;
+	isMonthly: boolean;
 	handleCheckboxes: (e: ChangeEvent<HTMLInputElement>) => void;
 }
-const AddOns = ({ formInput, step, handleCheckboxes }: Props) => {
+const AddOns = ({ formInput, step, handleCheckboxes, isMonthly }: Props) => {
 	return (
 		<section className={`${styles.AddOnsContainer} ${step} section-container`}>
 			<SectionHeading
@@ -20,6 +21,7 @@ const AddOns = ({ formInput, step, handleCheckboxes }: Props) => {
 			<div className={styles.addOns}>
 				{ADDONS.map((addon, i) => (
 					<AddOn key={i} name={addon.title} description={addon.description} price={addon.price} formInput={formInput}
+								 isMonthly={isMonthly}
 								 handleCheckboxes={handleCheckboxes} />
 				))}
 			</div>
