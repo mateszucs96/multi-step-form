@@ -4,20 +4,33 @@ import styles from './form.module.scss';
 import PersonalInfo from './PersonalInfo';
 import Plans from './Plans';
 import Summary from './Summary';
+import ThankYou from './ThankYou';
 
-const Form = ({ step }: { step: number }) => {
+type Props = {
+	step: number;
+	handleNextStep: () => void;
+}
+
+const Form = ({
+								step,
+								handleNextStep,
+							}: Props) => {
 	const {
 		formInput,
 		handleInputChange,
 		handlePlanSelect,
 		handlePlanToggle,
 		handleCheckboxes,
+		handleSubmit,
 	} =
 		useForm();
 	return (
 		<main>
 			<div>
-				<form className={styles.infoForm}>
+				<form className={styles.infoForm} onSubmit={(e) => {
+					handleSubmit(e);
+					handleNextStep();
+				}} id='form'>
 					{step === 1 && (
 						<PersonalInfo
 							step={1}
@@ -28,9 +41,9 @@ const Form = ({ step }: { step: number }) => {
 					{step === 2 && <Plans step={2} handlePlanSelect={handlePlanSelect} formInput={formInput}
 																isMonthly={formInput.plan.isMonthly}
 																handlePlanToggle={handlePlanToggle} />}
-					{step === 3 && <AddOns step={3} formInput={formInput} handleCheckboxes={handleCheckboxes}
-																 isMonthly={formInput.plan.isMonthly} />}
+					{step === 3 && <AddOns step={3} formInput={formInput} handleCheckboxes={handleCheckboxes} />}
 					{step === 4 && <Summary formInput={formInput} />}
+					{step === 5 && <ThankYou />}
 				</form>
 			</div>
 		</main>

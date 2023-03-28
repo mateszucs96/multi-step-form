@@ -4,7 +4,7 @@ import Form from './components/Form';
 import Header from './components/Header';
 
 
-const FORM_STEPS = 4;
+const FORM_STEPS = 5;
 
 function App() {
 	const [step, setStep] = useState(1);
@@ -19,9 +19,9 @@ function App() {
 	};
 
 	return (
-		<div className="App">
+		<div className='App'>
 			<Header step={step} />
-			<Form step={step} />
+			<Form step={step} handleNextStep={handleNextStep} />
 			<Footer
 				step={step}
 				handleBack={handleBack}

@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 
 export type Inputs = {
 	plan: {
@@ -62,6 +62,11 @@ export const useForm = () => {
 		console.log(e.currentTarget.name);
 	};
 
+	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		console.log(formInput);
+	};
+
 	useEffect(() => {
 		console.log(formInput);
 	}, [formInput]);
@@ -72,5 +77,6 @@ export const useForm = () => {
 		handlePlanSelect,
 		handlePlanToggle,
 		handleCheckboxes,
+		handleSubmit,
 	};
 };

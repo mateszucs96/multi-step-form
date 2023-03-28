@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Step = ({ step, stepNumber }: { step: number; stepNumber: number }) => {
 	return (
 		<div className={`step-number ${step === stepNumber && 'active'}`}>

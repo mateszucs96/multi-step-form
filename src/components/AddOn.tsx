@@ -7,10 +7,9 @@ type Props = {
 	description: string;
 	price: number;
 	formInput: Inputs;
-	isMonthly: boolean,
 	handleCheckboxes: (e: ChangeEvent<HTMLInputElement>) => void;
 }
-const AddOn = ({ name, description, price, formInput, handleCheckboxes, isMonthly }: Props) => {
+const AddOn = ({ name, description, price, formInput, handleCheckboxes }: Props) => {
 	return (
 		<div className={`${styles.onlineService} checkboxContainer`}>
 			<input type='checkbox' id={name} name={name}
@@ -20,7 +19,7 @@ const AddOn = ({ name, description, price, formInput, handleCheckboxes, isMonthl
 				<h3>{name}</h3>
 				<p>{description}</p>
 			</label>
-			<p>+{isMonthly ? price : price * 10}$</p>
+			<p>+{formInput.plan.isMonthly ? price : price * 10}$</p>
 		</div>
 	);
 };

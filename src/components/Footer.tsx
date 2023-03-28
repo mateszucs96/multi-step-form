@@ -8,11 +8,12 @@ type Props = {
 };
 
 const Footer = ({ step, handleBack, handleNextStep }: Props) => {
+	if (step === 5) return null;
 	return (
 		<footer className={styles.footer}>
 			{step !== 1 && (
 				<button
-					type="button"
+					type='button'
 					className={styles.backButton}
 					onClick={handleBack}
 				>
@@ -21,11 +22,20 @@ const Footer = ({ step, handleBack, handleNextStep }: Props) => {
 			)}
 			{step !== 4 && (
 				<button
-					type="button"
+					type='button'
 					className={styles.nextButton}
 					onClick={handleNextStep}
 				>
 					Next step
+				</button>
+			)}
+			{step === 4 && (
+				<button
+					type='submit'
+					className={styles.nextButton}
+					form='form'
+				>
+					Confirm
 				</button>
 			)}
 		</footer>
