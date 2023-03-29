@@ -20,6 +20,7 @@ module.exports = {
 		indent: ['error', 'tab'],
 		'react/react-in-jsx-scope': 'off',
 		'linebreak-style': ['error', 'unix'],
+		'no-mixed-spaces-and-tabs': 0,
 		quotes: ['error', 'single'],
 		semi: ['error', 'always'],
 	},

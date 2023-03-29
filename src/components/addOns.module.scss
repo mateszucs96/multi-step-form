@@ -1,8 +1,8 @@
 .addOns {
-	display: flex;
-	flex-direction: column;
-	gap: 1.2rem;
-	@media (min-width: 700px) {
-		gap: 1.6rem;
-	}
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  @media (min-width: 800px) {
+    gap: 1.6rem;
+  }
 }

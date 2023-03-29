@@ -18,11 +18,7 @@ type Props = {
 
 	handleInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
-const PersonalInfo = ({
-												step,
-												formInput,
-												handleInputChange,
-											}: Props) => {
+const PersonalInfo = ({ step, formInput, handleInputChange }: Props) => {
 	return (
 		<section
 			className={`${styles.personalInfoContainer} ${step} section-container`}
@@ -33,8 +29,9 @@ const PersonalInfo = ({
 			/>
 			<div className={styles.inputs}>
 				<div className={`${styles.nameInput} input-container`}>
-					<label htmlFor='name'>Name</label>
+					<label className={styles.inputLabel} htmlFor='name'>Name</label>
 					<input
+						className={styles.input}
 						type='text'
 						name='name'
 						placeholder='e.g. Stephen King'
@@ -43,8 +40,9 @@ const PersonalInfo = ({
 					/>
 				</div>
 				<div className={`${styles.emailInput} input-container`}>
-					<label htmlFor='email'>Email address</label>
+					<label className={styles.inputLabel} htmlFor='email'>Email address</label>
 					<input
+						className={styles.input}
 						type='text'
 						name='email'
 						placeholder='e.g. stephenking@lorem.com'
@@ -53,8 +51,9 @@ const PersonalInfo = ({
 					/>
 				</div>
 				<div className={`${styles.phoneInput} input-container`}>
-					<label htmlFor='phone'>Phone number</label>
+					<label className={styles.inputLabel} htmlFor='phone'>Phone number</label>
 					<input
+						className={styles.input}
 						type='text'
 						name='phoneNumber'
 						placeholder='e.g. +1 234 567 890'

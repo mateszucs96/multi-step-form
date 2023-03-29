@@ -1,10 +1,42 @@
 .personalInfoContainer {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-	.inputs {
-		display: flex;
-		flex-direction: column;
-		gap: 1.6rem;
-	}
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+}
+
+.inputLabel {
+  color: var(--clr-primary-700);
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  @media (min-width: 800px) {
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+  }
+}
+
+.input {
+  caret-color: var(--clr-primary-700);
+  padding: 1.2rem 0;
+  padding-left: 1.6rem;
+  border: 1px solid var(--clr-neutral-400);
+  border-radius: 4px;
+  cursor: pointer;
+  @media (min-width: 800px) {
+    padding: 1.5rem 0;
+    padding-left: 1.6rem;
+  }
+}
+
+.input:is(:hover) {
+
+}
+
+
+.input:is(:focus, :active) {
+  outline: 1px solid var(--clr-primary-500);
 }
