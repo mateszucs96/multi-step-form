@@ -1,3 +1,5 @@
+@import '../variables';
+
 .footer {
   display: flex;
 
@@ -5,7 +7,7 @@
   padding: 1.6rem;
   margin-top: 2.4rem;
   align-self: center;
-  @media (min-width: 800px) {
+  @media (min-width: $md-breakpoint) {
     grid-column: 2;
     width: 100%;
     max-width: 45rem;
