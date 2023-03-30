@@ -21,10 +21,13 @@ const Plans = ({ step, formInput, handlePlanSelect, isMonthly, handlePlanToggle 
 				title='Select your plan'
 				info='You have the option of monthly or yearly billing.'
 			/>
-			{PLANS.map((plan, i) => (
-				<Plan key={i} id={plan.id} title={plan.title} price={plan.price} formInput={formInput} isMonthly={isMonthly}
-							handlePlanSelect={handlePlanSelect} />
-			))}
+			<div className={styles.planCards}>
+				{PLANS.map((plan, i) => (
+					<Plan key={i} id={plan.id} title={plan.title} price={plan.price} formInput={formInput} isMonthly={isMonthly}
+								handlePlanSelect={handlePlanSelect} />
+				))}
+			</div>
+
 			<div className={styles.toggleContainer}>
 				<p className={`${formInput.plan.isMonthly ? styles.active : ''}`}>Monthly</p>
 				<div className={`${styles.toggle}`} style={{ justifyContent: isMonthly ? 'flex-start' : 'flex-end' }}

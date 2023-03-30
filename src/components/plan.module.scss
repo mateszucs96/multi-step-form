@@ -13,19 +13,67 @@
   gap: 1.2rem;
 }
 
-.planCard {
+.planCards {
   display: flex;
-  align-items: center;
-  gap: 1.4rem;
-  padding: 1.6rem;
-  border: 1px solid #d6d9e6;
-  border-radius: 8px;
-  cursor: pointer;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 2.4rem;
+
+  @media (min-width: $md-breakpoint) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 3.2rem;
+  }
+
+  .planCard {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    padding: 1.6rem;
+    border: 1px solid #d6d9e6;
+    border-radius: 8px;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--clr-neutral-200);
+      border: 1px solid var(--clr-primary-500) !important;
+    }
+
+    img {
+      height: 4rem;
+      width: 4rem;
+    }
+
+    .planInfo {
+      display: flex;
+      flex-direction: column;
+      gap: .7rem;
+
+      h3 {
+        color: var(--clr-primary-700);
+        font-size: 1.6rem;
+      }
+
+      p {
+        font-size: 1.4rem;
+        line-height: 2rem;
+      }
+    }
+
+    @media (min-width: $md-breakpoint) {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 14rem;
+      gap: 4rem;
+    }
+  }
 }
 
+
 .selected {
-  border: 1px solid var(--clr-primary-500);
-  background: #F8F9FF;
+  background: var(--clr-neutral-200);
+  border: 1px solid var(--clr-primary-500) !important;
 }
 
 .active {
@@ -36,12 +84,16 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  padding: 1.4rem 0;
+  background-color: var(--clr-neutral-200);
+  border-radius: 8px;
 
   .toggle {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     padding-inline: .4rem;
+    cursor: pointer;
     width: 3.8rem;
     height: 2rem;
     border-radius: 10px;

@@ -21,9 +21,8 @@ const Plan = ({ id, title, price, formInput, handlePlanSelect, isMonthly }: Prop
 				 }} data-attr={id}>
 
 			<img src={`src/assets/images/icon-${title.toLowerCase()}.svg`} alt='Arcade-icon' />
-			<div>
+			<div className={styles.planInfo}>
 				<h3>{title}</h3>
-
 				<p>
 					$<span>{isMonthly ? price : price * 10}</span>/{isMonthly ? 'mo' : 'yr'}
 				</p>
