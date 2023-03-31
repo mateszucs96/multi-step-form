@@ -1,5 +1,5 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
-import styles from './plan.module.scss';
+import styles from './plans.module.scss';
 import SectionHeading from './SectionHeading';
 import { PLANS } from '../store/options';
 import React from 'react';

@@ -1,0 +1,67 @@
+@import '../variables';
+
+.PlanContainer {
+  margin-inline: 1.6rem;
+  padding-inline: 2.4rem;
+  background-color: var(--clr-neutral-100);
+  border-radius: 10px;
+}
+
+.planCards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 2.4rem;
+
+  @media (min-width: $md-breakpoint) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 3.2rem;
+  }
+}
+
+.plans {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+
+.active {
+  color: var(--clr-primary-700)
+}
+
+.toggleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 1.4rem 0;
+  background-color: var(--clr-neutral-200);
+  border-radius: 8px;
+
+  p {
+    font-width: 500;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+  }
+
+  .toggle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-inline: .4rem;
+    cursor: pointer;
+    width: 3.8rem;
+    height: 2rem;
+    border-radius: 10px;
+    background-color: var(--clr-primary-700);
+
+    .circle {
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 100vh;
+      background-color: var(--clr-neutral-100);
+    }
+  }
+}

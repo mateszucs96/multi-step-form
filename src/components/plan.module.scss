@@ -1,72 +1,53 @@
 @import '../variables';
 
-.PlanContainer {
-  margin-inline: 1.6rem;
-  padding-inline: 2.4rem;
-  background-color: var(--clr-neutral-100);
-  border-radius: 10px;
-}
-
-.plans {
+.planCard {
   display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
+  align-items: center;
+  gap: 1.4rem;
+  padding: 1.6rem;
+  border: 1px solid #d6d9e6;
+  border-radius: 8px;
+  cursor: pointer;
 
-.planCards {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  margin-bottom: 2.4rem;
-
-  @media (min-width: $md-breakpoint) {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 3.2rem;
+  &:hover {
+    background: var(--clr-neutral-200);
+    border: 1px solid var(--clr-primary-500) !important;
   }
 
-  .planCard {
-    display: flex;
-    align-items: center;
-    gap: 1.4rem;
-    padding: 1.6rem;
-    border: 1px solid #d6d9e6;
-    border-radius: 8px;
-    cursor: pointer;
+  img {
+    height: 4rem;
+    width: 4rem;
+  }
 
-    &:hover {
-      background: var(--clr-neutral-200);
-      border: 1px solid var(--clr-primary-500) !important;
-    }
 
-    img {
-      height: 4rem;
-      width: 4rem;
-    }
+  @media (min-width: $md-breakpoint) {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 14rem;
+    gap: 4rem;
+  }
+}
 
-    .planInfo {
-      display: flex;
-      flex-direction: column;
-      gap: .7rem;
+.planInfo {
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
 
-      h3 {
-        color: var(--clr-primary-700);
-        font-size: 1.6rem;
-      }
+  .title {
+    color: var(--clr-primary-700);
+    font-weight: 500;
+    font-size: 1.6rem;
+  }
 
-      p {
-        font-size: 1.4rem;
-        line-height: 2rem;
-      }
-    }
+  .price {
+    font-size: 1.4rem;
+    line-height: 2rem;
+  }
 
-    @media (min-width: $md-breakpoint) {
-      flex-direction: column;
-      align-items: flex-start;
-      width: 14rem;
-      gap: 4rem;
-    }
+  .yearlyGift {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    color: var(--clr-primary-700);
   }
 }
 
@@ -76,36 +57,5 @@
   border: 1px solid var(--clr-primary-500) !important;
 }
 
-.active {
-  color: var(--clr-primary-700)
-}
-
-.toggleContainer {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  padding: 1.4rem 0;
-  background-color: var(--clr-neutral-200);
-  border-radius: 8px;
-
-  .toggle {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding-inline: .4rem;
-    cursor: pointer;
-    width: 3.8rem;
-    height: 2rem;
-    border-radius: 10px;
-    background-color: var(--clr-primary-700);
-
-    .circle {
-      width: 1.2rem;
-      height: 1.2rem;
-      border-radius: 100vh;
-      background-color: var(--clr-neutral-100);
-    }
-  }
-}
 
 

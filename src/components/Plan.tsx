@@ -1,5 +1,4 @@
 import styles from './plan.module.scss';
-import React, { ChangeEvent } from 'react';
 import { Inputs } from '../hooks/useForm';
 
 type Props = {
@@ -19,14 +18,13 @@ const Plan = ({ id, title, price, formInput, handlePlanSelect, isMonthly }: Prop
 					 handlePlanSelect(e);
 					 console.log(e.currentTarget.dataset);
 				 }} data-attr={id}>
-
 			<img src={`src/assets/images/icon-${title.toLowerCase()}.svg`} alt='Arcade-icon' />
 			<div className={styles.planInfo}>
-				<h3>{title}</h3>
-				<p>
+				<h3 className={styles.title}>{title}</h3>
+				<p className={styles.price}>
 					$<span>{isMonthly ? price : price * 10}</span>/{isMonthly ? 'mo' : 'yr'}
 				</p>
-
+				<p className={styles.yearlyGift}>2 Months free</p>
 			</div>
 		</div>
 
