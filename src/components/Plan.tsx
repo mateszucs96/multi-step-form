@@ -24,7 +24,7 @@ const Plan = ({ id, title, price, formInput, handlePlanSelect, isMonthly }: Prop
 				<p className={styles.price}>
 					$<span>{isMonthly ? price : price * 10}</span>/{isMonthly ? 'mo' : 'yr'}
 				</p>
-				<p className={styles.yearlyGift}>2 Months free</p>
+				{!isMonthly ? <p className={styles.yearlyGift}>2 Months free</p> : ''}
 			</div>
 		</div>
 
