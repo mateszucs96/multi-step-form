@@ -3,8 +3,12 @@
 .selectedItems {
   background-color: hsla(231, 100%, 99%, 1);
   border-radius: 8px;
-  padding: 2.4rem;
+  padding: 1.6rem;
   margin-bottom: 2.4rem;
+
+  @media (min-width: $md-breakpoint) {
+    padding: 2.4rem;
+  }
 
   .plan {
     color: var(--clr-primary-700);
@@ -29,10 +33,16 @@
   .addOns {
     display: flex;
     flex-direction: column;
-    gap: 1.6rem;
-    padding-top: 1.6rem;
-    margin-top: 2.4rem;
+    gap: 1.2rem;
+    padding-top: 1.2rem;
+    margin-top: 1.2rem;
     border-top: 1px solid var(--clr-neutral-700);
+
+    @media (min-width: $md-breakpoint) {
+      gap: 1.6rem;
+      padding-top: 1.6rem;
+      margin-top: 2.4rem;
+    }
   }
 }
 
