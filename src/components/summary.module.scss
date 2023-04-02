@@ -1,0 +1,51 @@
+@import "../variables";
+
+.selectedItems {
+  background-color: hsla(231, 100%, 99%, 1);
+  border-radius: 8px;
+  padding: 2.4rem;
+  margin-bottom: 2.4rem;
+
+  .plan {
+    color: var(--clr-primary-700);
+
+    .changeButton {
+      border: none;
+      background: none;
+      padding: 0;
+      color: var(--clr-neutral-700);
+      font-size: 1.4rem;
+      line-height: 2rem;
+      margin-top: .5rem;
+      text-decoration-line: underline;
+      cursor: pointer;
+    }
+
+    .changeButton:hover {
+      color: var(--clr-primary-500);
+    }
+  }
+
+  .addOns {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    padding-top: 1.6rem;
+    margin-top: 2.4rem;
+    border-top: 1px solid var(--clr-neutral-700);
+  }
+}
+
+.total {
+  padding-inline: 2.4rem;
+
+  .price {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    font-weight: 700;
+    @media (min-width: $md-breakpoint) {
+      font-size: 2rem;
+    }
+  }
+}
+

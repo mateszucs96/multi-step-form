@@ -18,10 +18,14 @@ function App() {
 		setStep((prev) => prev - 1);
 	};
 
+	const handleChange = () => {
+		setStep(2);
+	};
+
 	return (
 		<div className='App'>
 			<Header step={step} />
-			<Form step={step} handleNextStep={handleNextStep} />
+			<Form step={step} handleNextStep={handleNextStep} handleChange={handleChange} />
 			<Footer
 				step={step}
 				handleBack={handleBack}

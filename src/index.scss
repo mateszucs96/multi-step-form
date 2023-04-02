@@ -133,3 +133,8 @@ button {
   color: var(--clr-primary-500);
   border: none;
 }
+
+.flex-wrapper {
+  display: flex;
+  justify-content: space-between;
+}

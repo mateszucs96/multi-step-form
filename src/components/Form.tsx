@@ -7,10 +7,12 @@ import Summary from './Summary';
 import ThankYou from './ThankYou';
 
 type Props = {
-	step: number; handleNextStep: () => void;
+	step: number;
+	handleNextStep: () => void;
+	handleChange: () => void;
 }
 
-const Form = ({ step, handleNextStep }: Props) => {
+const Form = ({ step, handleNextStep, handleChange }: Props) => {
 	const {
 		formInput, handleInputChange, handlePlanSelect, handlePlanToggle, handleCheckboxes, handleSubmit,
 	} = useForm();
@@ -29,7 +31,7 @@ const Form = ({ step, handleNextStep }: Props) => {
 					<Plans step={2} handlePlanSelect={handlePlanSelect} formInput={formInput} isMonthly={formInput.plan.isMonthly}
 								 handlePlanToggle={handlePlanToggle} />}
 				{step === 3 && <AddOns step={3} formInput={formInput} handleCheckboxes={handleCheckboxes} />}
-				{step === 4 && <Summary formInput={formInput} />}
+				{step === 4 && <Summary formInput={formInput} handleChange={handleChange} />}
 				{step === 5 && <ThankYou />}
 			</form>
 		</div>
