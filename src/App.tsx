@@ -3,6 +3,7 @@ import Footer from './components/Footer';
 import Form from './components/Form';
 import Header from './components/Header';
 import PriceTag from './components/PriceTag';
+import ThankYou from './components/ThankYou';
 
 
 const FORM_STEPS = 5;
@@ -26,7 +27,7 @@ function App() {
 	return (
 		<div className='App'>
 			<Header step={step} />
-			<Form step={step} handleNextStep={handleNextStep} handleChange={handleChange} />
+			{step === 5 ? <ThankYou /> : <Form step={step} handleNextStep={handleNextStep} handleChange={handleChange} />}
 			<Footer
 				step={step}
 				handleBack={handleBack}

@@ -47,10 +47,9 @@ const Summary = ({ formInput, handleChange }: Props) => {
 						</div>
 
 
-						<div>
-							<PriceTag isMonthly={formInput.plan.isMonthly} price={PLANS[formInput.plan.selected - 1].price}
-												fontColor={'#022959'} />
-						</div>
+						<PriceTag isMonthly={formInput.plan.isMonthly} price={PLANS[formInput.plan.selected - 1].price}
+											fontColor={'#022959'} fontWeight={'700'} />
+
 					</div>
 
 					<ul className={`${styles.addOns} flex-wrapper`}>
@@ -58,7 +57,12 @@ const Summary = ({ formInput, handleChange }: Props) => {
 							value &&
 							<li className='flex-wrapper' key={i}>
 								<p>{key}</p>
-								<PriceTag isMonthly={formInput.plan.isMonthly} price={ADDONS[i].price} fontColor={'#022959'} />
+								<div style={{ display: 'flex' }}>
+									<span>+</span>
+									<PriceTag isMonthly={formInput.plan.isMonthly} price={ADDONS[i].price} fontColor={'#022959'}
+														fontWeight={'400'} />
+								</div>
+
 							</li>
 						))}
 					</ul>
@@ -67,7 +71,7 @@ const Summary = ({ formInput, handleChange }: Props) => {
 			</div>
 			<div className={`${styles.total} flex-wrapper`}>
 				<p>Total <span>{formInput.plan.isMonthly ? '(per month)' : '(per year)'}</span></p>
-				<p className={styles.price}>{'$' + getTotalPrice()}<span>{formInput.plan.isMonthly ? '/mo' : '/yr'}</span></p>
+				<p className={styles.price}>{'+$' + getTotalPrice()}<span>{formInput.plan.isMonthly ? '/mo' : '/yr'}</span></p>
 			</div>
 
 		</div>

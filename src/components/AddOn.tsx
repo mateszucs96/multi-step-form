@@ -21,8 +21,10 @@ const AddOn = ({ name, description, price, formInput, handleCheckboxes }: Props)
 					<p className={styles.description}>{description}</p>
 				</label>
 			</div>
-
-			<PriceTag isMonthly={formInput.plan.isMonthly} price={price} fontColor={'#483EFF'} />
+			<div style={{ display: 'flex' }}>
+				<span>+</span>
+				<PriceTag isMonthly={formInput.plan.isMonthly} price={price} fontColor={'#483EFF'} />
+			</div>
 		</div>
 	);
 };

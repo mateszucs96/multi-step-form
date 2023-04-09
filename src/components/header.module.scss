@@ -13,6 +13,8 @@
     grid-row: 1 / span 2;
     justify-content: flex-start;
     height: auto;
+
+    width: 100%;
   }
 
   .steps {
@@ -27,5 +29,30 @@
       margin-left: 3.2rem;
       margin-top: 4rem;
     }
+
+    .stepContainer {
+      @media (min-width: 800px) {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+      }
+    }
+  }
+}
+
+.stepLabel {
+  @media (max-width: 800px) {
+    display: none;
+  }
+
+  p {
+    color: var(--clr-primary-300);
+    font-size: 1.2rem;
+  }
+
+  h3 {
+    color: var(--clr-neutral-100);
+    font-size: 1.4rem;
+    margin-top: .4rem;
   }
 }

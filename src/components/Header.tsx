@@ -5,10 +5,34 @@ const Header = ({ step }: { step: number }) => {
 	return (
 		<header className={styles.header}>
 			<div className={styles.steps}>
-				<Step stepNumber={1} step={step} />
-				<Step stepNumber={2} step={step} />
-				<Step stepNumber={3} step={step} />
-				<Step stepNumber={4} step={step} />
+				<div className={styles.stepContainer}>
+					<Step stepNumber={1} step={step} />
+					<div className={styles.stepLabel}>
+						<p>STEP 1</p>
+						<h3>STEP INFO</h3>
+					</div>
+				</div>
+				<div className={styles.stepContainer}>
+					<Step stepNumber={2} step={step} />
+					<div className={styles.stepLabel}>
+						<p>STEP 2</p>
+						<h3>STEP INFO</h3>
+					</div>
+				</div>
+				<div className={styles.stepContainer}>
+					<Step stepNumber={3} step={step} />
+					<div className={styles.stepLabel}>
+						<p>STEP 3</p>
+						<h3>STEP INFO</h3>
+					</div>
+				</div>
+				<div className={styles.stepContainer}>
+					<Step stepNumber={4} step={step} />
+					<div className={styles.stepLabel}>
+						<p>STEP 4</p>
+						<h3>STEP INFO</h3>
+					</div>
+				</div>
 			</div>
 		</header>
 	);

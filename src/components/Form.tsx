@@ -32,7 +32,6 @@ const Form = ({ step, handleNextStep, handleChange }: Props) => {
 								 handlePlanToggle={handlePlanToggle} />}
 				{step === 3 && <AddOns step={3} formInput={formInput} handleCheckboxes={handleCheckboxes} />}
 				{step === 4 && <Summary formInput={formInput} handleChange={handleChange} />}
-				{step === 5 && <ThankYou />}
 			</form>
 		</div>
 	</main>);
