@@ -9,28 +9,28 @@ const Header = ({ step }: { step: number }) => {
 					<Step stepNumber={1} step={step} />
 					<div className={styles.stepLabel}>
 						<p>STEP 1</p>
-						<h3>STEP INFO</h3>
+						<h3>YOUR INFO</h3>
 					</div>
 				</div>
 				<div className={styles.stepContainer}>
 					<Step stepNumber={2} step={step} />
 					<div className={styles.stepLabel}>
 						<p>STEP 2</p>
-						<h3>STEP INFO</h3>
+						<h3>SELECT PLAN</h3>
 					</div>
 				</div>
 				<div className={styles.stepContainer}>
 					<Step stepNumber={3} step={step} />
 					<div className={styles.stepLabel}>
 						<p>STEP 3</p>
-						<h3>STEP INFO</h3>
+						<h3>ADD-ONS</h3>
 					</div>
 				</div>
 				<div className={styles.stepContainer}>
 					<Step stepNumber={4} step={step} />
 					<div className={styles.stepLabel}>
 						<p>STEP 4</p>
-						<h3>STEP INFO</h3>
+						<h3>SUMMARY</h3>
 					</div>
 				</div>
 			</div>
