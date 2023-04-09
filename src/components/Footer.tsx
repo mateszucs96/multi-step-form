@@ -3,12 +3,14 @@ import styles from './footer.module.scss';
 
 type Props = {
 	step: number;
+	isSubmitted: boolean;
 	handleBack: MouseEventHandler<HTMLButtonElement>;
 	handleNextStep: MouseEventHandler<HTMLButtonElement>;
+	handleSubmit: MouseEventHandler<HTMLButtonElement>;
 };
 
-const Footer = ({ step, handleBack, handleNextStep }: Props) => {
-	if (step === 5) return null;
+const Footer = ({ isSubmitted, step, handleBack, handleNextStep, handleSubmit }: Props) => {
+	if (isSubmitted) return null;
 	return (
 		<footer className={styles.footer}>
 			{step !== 1 && (
@@ -34,6 +36,7 @@ const Footer = ({ step, handleBack, handleNextStep }: Props) => {
 					type='submit'
 					className={styles.nextButton}
 					form='form'
+					onClick={handleSubmit}
 				>
 					Confirm
 				</button>

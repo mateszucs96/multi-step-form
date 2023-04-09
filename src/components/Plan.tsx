@@ -1,6 +1,7 @@
 import styles from './plan.module.scss';
 import { Inputs } from '../hooks/useForm';
 import PriceTag from './PriceTag';
+import React from 'react';
 
 type Props = {
 	isMonthly: boolean;

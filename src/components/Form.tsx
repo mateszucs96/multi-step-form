@@ -4,7 +4,6 @@ import styles from './form.module.scss';
 import PersonalInfo from './PersonalInfo';
 import Plans from './Plans';
 import Summary from './Summary';
-import ThankYou from './ThankYou';
 
 type Props = {
 	step: number;

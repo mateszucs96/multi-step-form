@@ -2,15 +2,15 @@ import { useState } from 'react';
 import Footer from './components/Footer';
 import Form from './components/Form';
 import Header from './components/Header';
-import PriceTag from './components/PriceTag';
 import ThankYou from './components/ThankYou';
+import { useForm } from './hooks/useForm';
 
 
-const FORM_STEPS = 5;
+const FORM_STEPS = 4;
 
 function App() {
 	const [step, setStep] = useState(1);
-
+	const [isSubmitted, setIsSubmitted] = useState(false);
 	const handleNextStep = () => {
 		if (step >= FORM_STEPS) return;
 		setStep((prev) => prev + 1);
@@ -24,14 +24,20 @@ function App() {
 		setStep(2);
 	};
 
+	const handleSubmit = () => {
+		setIsSubmitted(true);
+	};
+
 	return (
 		<div className='App'>
 			<Header step={step} />
-			{step === 5 ? <ThankYou /> : <Form step={step} handleNextStep={handleNextStep} handleChange={handleChange} />}
+			{isSubmitted ? <ThankYou /> : <Form step={step} handleNextStep={handleNextStep} handleChange={handleChange} />}
 			<Footer
 				step={step}
 				handleBack={handleBack}
 				handleNextStep={handleNextStep}
+				handleSubmit={handleSubmit}
+				isSubmitted={isSubmitted}
 			/>
 		</div>
 	);

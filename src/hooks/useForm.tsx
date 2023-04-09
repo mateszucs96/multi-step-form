@@ -22,6 +22,7 @@ export const useForm = () => {
 			'Customizable profile': false,
 		},
 	});
+	const [isSubmitted, setIsSubmitted] = useState(false);
 
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
 		setFormInput({ ...formInput, [e.currentTarget.name]: e.currentTarget.value });
@@ -62,7 +63,8 @@ export const useForm = () => {
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		console.log(formInput);
+		setIsSubmitted(true);
+		console.log(isSubmitted);
 	};
 
 	useEffect(() => {
@@ -71,6 +73,7 @@ export const useForm = () => {
 
 	return {
 		formInput,
+		isSubmitted,
 		handleInputChange,
 		handlePlanSelect,
 		handlePlanToggle,

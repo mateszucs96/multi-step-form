@@ -3,7 +3,7 @@ import styles from './thankYou.module.scss';
 
 const ThankYou = () => {
 	return (
-		<section className={`${styles.thankYouSection}  section-container`}>
+		<section className={`${styles.thankYouSection}`}>
 			<img src={icon} />
 			<div>
 				<h1>Thank you!</h1>
