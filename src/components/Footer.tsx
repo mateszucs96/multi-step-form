@@ -25,16 +25,16 @@ const Footer = ({ isSubmitted, step, handleBack, handleNextStep, handleSubmit }:
 			{step !== 4 && (
 				<button
 					type='button'
-					className={styles.nextButton}
+					className={`${styles.nextButton} button`}
 					onClick={handleNextStep}
 				>
-					Next step
+					Next Step
 				</button>
 			)}
 			{step === 4 && (
 				<button
 					type='submit'
-					className={styles.nextButton}
+					className={`${styles.confirmButton} button`}
 					form='form'
 					onClick={handleSubmit}
 				>
