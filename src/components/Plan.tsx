@@ -1,5 +1,6 @@
 import styles from './plan.module.scss';
 import { Inputs } from '../hooks/useForm';
+import PriceTag from './PriceTag';
 
 type Props = {
 	isMonthly: boolean;
@@ -21,9 +22,7 @@ const Plan = ({ id, title, price, formInput, handlePlanSelect, isMonthly }: Prop
 			<img src={`src/assets/images/icon-${title.toLowerCase()}.svg`} alt='Arcade-icon' />
 			<div className={styles.planInfo}>
 				<h3 className={styles.title}>{title}</h3>
-				<p className={styles.price}>
-					$<span>{isMonthly ? price : price * 10}</span>/{isMonthly ? 'mo' : 'yr'}
-				</p>
+				<PriceTag isMonthly={isMonthly} price={price} fontColor={'#9699AA'} />
 				{!isMonthly ? <p className={styles.yearlyGift}>2 Months free</p> : ''}
 			</div>
 		</div>

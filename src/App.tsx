@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Footer from './components/Footer';
 import Form from './components/Form';
 import Header from './components/Header';
+import PriceTag from './components/PriceTag';
 
 
 const FORM_STEPS = 5;

@@ -2,12 +2,14 @@ import SectionHeading from './SectionHeading';
 import { ADDONS, PLANS } from '../store/options';
 import { Inputs } from '../hooks/useForm';
 import styles from './summary.module.scss';
+import PriceTag from './PriceTag';
 
 type Props = {
 	formInput: Inputs;
 	handleChange: () => void;
 }
 const Summary = ({ formInput, handleChange }: Props) => {
+	console.log(Object.keys(formInput.addOns).filter(key => formInput.addOns[key]));
 	const getTotalPrice = (): number => {
 		const planPrices = PLANS
 			.filter(el => el.id === formInput.plan.selected)
@@ -46,10 +48,8 @@ const Summary = ({ formInput, handleChange }: Props) => {
 
 
 						<div>
-							<p>
-								${formInput.plan.isMonthly ? PLANS[formInput.plan.selected - 1].price : PLANS[formInput.plan.selected - 1].price * 10}
-								<span>{formInput.plan.isMonthly ? '/mo' : '/yr'}</span>
-							</p>
+							<PriceTag isMonthly={formInput.plan.isMonthly} price={PLANS[formInput.plan.selected - 1].price}
+												fontColor={'#022959'} />
 						</div>
 					</div>
 
@@ -58,9 +58,7 @@ const Summary = ({ formInput, handleChange }: Props) => {
 							value &&
 							<li className='flex-wrapper' key={i}>
 								<p>{key}</p>
-								<p>
-									+${+formInput.plan.isMonthly ? ADDONS[i].price : ADDONS[i].price * 10}<span>{formInput.plan.isMonthly ? '/mo' : '/yr'}</span>
-								</p>
+								<PriceTag isMonthly={formInput.plan.isMonthly} price={ADDONS[i].price} fontColor={'#022959'} />
 							</li>
 						))}
 					</ul>

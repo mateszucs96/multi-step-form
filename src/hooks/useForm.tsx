@@ -6,9 +6,7 @@ export type Inputs = {
 		isMonthly: boolean;
 	}
 	addOns: {
-		'Online service': boolean;
-		'Larger storage': boolean;
-		'Customizable profile': boolean
+		[key: string]: boolean;
 	}
 }
 

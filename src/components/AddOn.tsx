@@ -1,6 +1,7 @@
 import styles from './addOns.module.scss';
 import React, { ChangeEvent } from 'react';
 import { Inputs } from '../hooks/useForm';
+import PriceTag from './PriceTag';
 
 type Props = {
 	name: string;
@@ -21,9 +22,7 @@ const AddOn = ({ name, description, price, formInput, handleCheckboxes }: Props)
 				</label>
 			</div>
 
-			<p
-				className={styles.price}>+${formInput.plan.isMonthly ? price : price * 10}/{formInput.plan.isMonthly ? 'mo' : 'yr'}
-			</p>
+			<PriceTag isMonthly={formInput.plan.isMonthly} price={price} fontColor={'#483EFF'} />
 		</div>
 	);
 };
