@@ -1,6 +1,11 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 
 export type Inputs = {
+	info: {
+		name: string;
+		email: string;
+		phoneNumber: string;
+	}
 	plan: {
 		selected: number;
 		isMonthly: boolean;
@@ -12,6 +17,11 @@ export type Inputs = {
 
 export const useForm = () => {
 	const [formInput, setFormInput] = useState<Inputs>({
+		info: {
+			name: '',
+			email: '',
+			phoneNumber: '',
+		},
 		plan: {
 			selected: 0,
 			isMonthly: true,
@@ -25,7 +35,15 @@ export const useForm = () => {
 	const [isSubmitted, setIsSubmitted] = useState(false);
 
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-		setFormInput({ ...formInput, [e.currentTarget.name]: e.currentTarget.value });
+		const name = e.currentTarget.name;
+		const value = e.currentTarget.value;
+		setFormInput(prevState => ({
+			...prevState,
+			info: {
+				...prevState.info,
+				[name]: value,
+			},
+		}));
 	};
 
 	const handlePlanSelect = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -64,7 +82,7 @@ export const useForm = () => {
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		setIsSubmitted(true);
-		console.log(isSubmitted);
+		console.log(formInput);
 	};
 
 	useEffect(() => {

@@ -11,15 +11,22 @@ type Props = {
 	handleChange: () => void;
 }
 
-const Form = ({ step, handleNextStep, handleChange }: Props) => {
-	const {
-		formInput, handleInputChange, handlePlanSelect, handlePlanToggle, handleCheckboxes, handleSubmit,
-	} = useForm();
+const Form = ({
+								step,
+								handleNextStep,
+								handleChange,
+								formInput,
+								handleInputChange,
+								handlePlanSelect,
+								handlePlanToggle,
+								handleCheckboxes,
+								handleSubmit,
+							}: Props) => {
 	return (<main>
 		<div>
 			<form className={styles.infoForm} onSubmit={(e) => {
-				handleSubmit(e);
-				handleNextStep();
+				handleSubmit();
+
 			}} id='form'>
 				{step === 1 && (<PersonalInfo
 					step={1}

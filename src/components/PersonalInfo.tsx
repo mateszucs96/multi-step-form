@@ -36,7 +36,7 @@ const PersonalInfo = ({ step, formInput, handleInputChange }: Props) => {
 						name='name'
 						placeholder='e.g. Stephen King'
 						onChange={handleInputChange}
-						value={formInput.name || ''}
+						value={formInput.info.name || ''}
 					/>
 				</div>
 				<div className={`${styles.emailInput} input-container`}>
@@ -47,7 +47,7 @@ const PersonalInfo = ({ step, formInput, handleInputChange }: Props) => {
 						name='email'
 						placeholder='e.g. stephenking@lorem.com'
 						onChange={handleInputChange}
-						value={formInput.email || ''}
+						value={formInput.info.email || ''}
 					/>
 				</div>
 				<div className={`${styles.phoneInput} input-container`}>
@@ -58,7 +58,7 @@ const PersonalInfo = ({ step, formInput, handleInputChange }: Props) => {
 						name='phoneNumber'
 						placeholder='e.g. +1 234 567 890'
 						onChange={handleInputChange}
-						value={formInput.phoneNumber || ''}
+						value={formInput.info.phoneNumber || ''}
 					/>
 				</div>
 			</div>
