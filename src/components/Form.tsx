@@ -1,9 +1,11 @@
-import { useForm } from '../hooks/useForm';
 import AddOns from './AddOns';
 import styles from './form.module.scss';
 import PersonalInfo from './PersonalInfo';
 import Plans from './Plans';
 import Summary from './Summary';
+import { useContext } from 'react';
+import formContext from '../store/form-context';
+import ThankYou from './ThankYou';
 
 type Props = {
 	step: number;
@@ -13,31 +15,21 @@ type Props = {
 
 const Form = ({
 								step,
-								handleNextStep,
 								handleChange,
-								formInput,
-								handleInputChange,
-								handlePlanSelect,
-								handlePlanToggle,
-								handleCheckboxes,
-								handleSubmit,
 							}: Props) => {
+	const formCtx = useContext(formContext);
 	return (<main>
 		<div>
 			<form className={styles.infoForm} onSubmit={(e) => {
-				handleSubmit();
+				formCtx.handleSubmit(e);
 
 			}} id='form'>
 				{step === 1 && (<PersonalInfo
-					step={1}
-					formInput={formInput}
-					handleInputChange={handleInputChange}
 				/>)}
 				{step === 2 &&
-					<Plans step={2} handlePlanSelect={handlePlanSelect} formInput={formInput} isMonthly={formInput.plan.isMonthly}
-								 handlePlanToggle={handlePlanToggle} />}
-				{step === 3 && <AddOns step={3} formInput={formInput} handleCheckboxes={handleCheckboxes} />}
-				{step === 4 && <Summary formInput={formInput} handleChange={handleChange} />}
+					<Plans />}
+				{step === 3 && <AddOns />}
+				{step === 4 && <Summary handleChange={handleChange} />}
 			</form>
 		</div>
 	</main>);

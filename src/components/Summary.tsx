@@ -3,25 +3,26 @@ import { ADDONS, PLANS } from '../store/options';
 import { Inputs } from '../hooks/useForm';
 import styles from './summary.module.scss';
 import PriceTag from './PriceTag';
+import { useContext } from 'react';
+import formContext from '../store/form-context';
 
 type Props = {
-	formInput: Inputs;
 	handleChange: () => void;
 }
-const Summary = ({ formInput, handleChange }: Props) => {
-	console.log(Object.keys(formInput.addOns).filter(key => formInput.addOns[key]));
+const Summary = ({ handleChange }: Props) => {
+	const formCtx = useContext(formContext);
 	const getTotalPrice = (): number => {
 		const planPrices = PLANS
-			.filter(el => el.id === formInput.plan.selected)
+			.filter(el => el.id === formCtx.formInput.plan.selected)
 			.reduce((acc, currentValue) => acc + currentValue.price, 0);
-		const filteredAddonTitles = Object.keys(formInput.addOns).filter(key => formInput.addOns[key]);
+		const filteredAddonTitles = Object.keys(formCtx.formInput.addOns).filter(key => formCtx.formInput.addOns[key]);
 		const filteredAddons = ADDONS.filter(el => filteredAddonTitles.includes(el.title));
 
 		const addOnPrices = filteredAddons.reduce(
 			(accumulator, currentValue) => accumulator + currentValue.price,
 			0,
 		);
-		return formInput.plan.isMonthly ? addOnPrices + planPrices : (addOnPrices + planPrices) * 10;
+		return formCtx.formInput.plan.isMonthly ? addOnPrices + planPrices : (addOnPrices + planPrices) * 10;
 	};
 
 	return (
@@ -36,30 +37,31 @@ const Summary = ({ formInput, handleChange }: Props) => {
 					<div className={`${styles.plan} flex-wrapper`}>
 
 						<div className={styles.title}>
-							{formInput.plan.selected === 1 &&
-								<p>Arcade<span>{formInput.plan.isMonthly ? '(Monthly)' : '(Yearly)'}</span></p>}
-							{formInput.plan.selected === 2 &&
-								<p>Advanced<span>{formInput.plan.isMonthly ? '(Monthly)' : '(Yearly)'}</span></p>}
-							{formInput.plan.selected === 3 &&
-								<p>Pro<span>{formInput.plan.isMonthly ? '(Monthly)' : '(Yearly)'}</span></p>}
+							{formCtx.formInput.plan.selected === 1 &&
+								<p>Arcade<span>{formCtx.formInput.plan.isMonthly ? '(Monthly)' : '(Yearly)'}</span></p>}
+							{formCtx.formInput.plan.selected === 2 &&
+								<p>Advanced<span>{formCtx.formInput.plan.isMonthly ? '(Monthly)' : '(Yearly)'}</span></p>}
+							{formCtx.formInput.plan.selected === 3 &&
+								<p>Pro<span>{formCtx.formInput.plan.isMonthly ? '(Monthly)' : '(Yearly)'}</span></p>}
 
 							<button className={styles.changeButton} type='button' onClick={handleChange}>Change</button>
 						</div>
 
 
-						<PriceTag isMonthly={formInput.plan.isMonthly} price={PLANS[formInput.plan.selected - 1].price}
+						<PriceTag isMonthly={formCtx.formInput.plan.isMonthly}
+											price={PLANS[formCtx.formInput.plan.selected - 1].price}
 											fontColor={'#022959'} fontWeight={'700'} />
 
 					</div>
 
 					<ul className={`${styles.addOns} flex-wrapper`}>
-						{Object.entries(formInput.addOns).map(([key, value], i) => (
+						{Object.entries(formCtx.formInput.addOns).map(([key, value], i) => (
 							value &&
 							<li className='flex-wrapper' key={i}>
 								<p>{key}</p>
 								<div style={{ display: 'flex' }}>
 									<span>+</span>
-									<PriceTag isMonthly={formInput.plan.isMonthly} price={ADDONS[i].price} fontColor={'#022959'}
+									<PriceTag isMonthly={formCtx.formInput.plan.isMonthly} price={ADDONS[i].price} fontColor={'#022959'}
 														fontWeight={'400'} />
 								</div>
 
@@ -70,8 +72,10 @@ const Summary = ({ formInput, handleChange }: Props) => {
 
 			</div>
 			<div className={`${styles.total} flex-wrapper`}>
-				<p>Total <span>{formInput.plan.isMonthly ? '(per month)' : '(per year)'}</span></p>
-				<p className={styles.price}>{'+$' + getTotalPrice()}<span>{formInput.plan.isMonthly ? '/mo' : '/yr'}</span></p>
+				<p>Total <span>{formCtx.formInput.plan.isMonthly ? '(per month)' : '(per year)'}</span></p>
+				<p
+					className={styles.price}>{'+$' + getTotalPrice()}<span>{formCtx.formInput.plan.isMonthly ? '/mo' : '/yr'}</span>
+				</p>
 			</div>
 
 		</div>

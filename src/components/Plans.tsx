@@ -2,42 +2,38 @@
 import styles from './plans.module.scss';
 import SectionHeading from './SectionHeading';
 import { PLANS } from '../store/options';
-import React from 'react';
+import React, { useContext } from 'react';
 import Plan from './Plan';
 import { Inputs } from '../hooks/useForm';
+import formContext from '../store/form-context';
 
-type Props = {
-	step: number;
-	isMonthly: boolean;
-	formInput: Inputs;
-	handlePlanSelect: (e: React.MouseEvent<HTMLDivElement>) => void;
-	handlePlanToggle: (e: React.MouseEvent<HTMLDivElement>) => void;
-}
-const Plans = ({ step, formInput, handlePlanSelect, isMonthly, handlePlanToggle }: Props) => {
-
+const Plans = () => {
+	const formCtx = useContext(formContext);
 	return (
-		<section className={`${styles.PlanContainer} ${step} section-container`}>
+		<section className={`${styles.PlanContainer} section-container`}>
 			<SectionHeading
 				title='Select your plan'
 				info='You have the option of monthly or yearly billing.'
 			/>
 			<div className={styles.planCards}>
 				{PLANS.map((plan, i) => (
-					<Plan key={i} id={plan.id} title={plan.title} price={plan.price} formInput={formInput} isMonthly={isMonthly}
-								handlePlanSelect={handlePlanSelect} />
+					<Plan key={i} id={plan.id} title={plan.title} price={plan.price} formInput={formCtx.formInput}
+								isMonthly={formCtx.formInput.plan.isMonthly}
+								handlePlanSelect={formCtx.handlePlanSelect} />
 				))}
 			</div>
 
 			<div className={styles.toggleContainer}>
-				<p className={`${formInput.plan.isMonthly ? styles.active : ''}`}>Monthly</p>
-				<div className={`${styles.toggle}`} style={{ justifyContent: isMonthly ? 'flex-start' : 'flex-end' }}
+				<p className={`${formCtx.formInput.plan.isMonthly ? styles.active : ''}`}>Monthly</p>
+				<div className={`${styles.toggle}`}
+						 style={{ justifyContent: formCtx.formInput.plan.isMonthly ? 'flex-start' : 'flex-end' }}
 						 onClick={(e) => {
-							 handlePlanToggle(e);
+							 formCtx.handlePlanToggle();
 						 }
 						 }>
 					<div className={styles.circle}></div>
 				</div>
-				<p className={`${formInput.plan.isMonthly ? '' : styles.active}`}>Yearly</p>
+				<p className={`${formCtx.formInput.plan.isMonthly ? '' : styles.active}`}>Yearly</p>
 			</div>
 
 		</section>

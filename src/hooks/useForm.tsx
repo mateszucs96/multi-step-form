@@ -85,10 +85,6 @@ export const useForm = () => {
 		console.log(formInput);
 	};
 
-	useEffect(() => {
-		console.log(formInput);
-	}, [formInput]);
-
 	return {
 		formInput,
 		isSubmitted,

@@ -1,16 +1,16 @@
-import React, { MouseEventHandler } from 'react';
+import React, { MouseEventHandler, useContext } from 'react';
 import styles from './footer.module.scss';
+import formContext from '../store/form-context';
 
 type Props = {
 	step: number;
-	isSubmitted: boolean;
 	handleBack: MouseEventHandler<HTMLButtonElement>;
 	handleNextStep: MouseEventHandler<HTMLButtonElement>;
-	handleSubmit: MouseEventHandler<HTMLButtonElement>;
 };
 
-const Footer = ({ isSubmitted, step, handleBack, handleNextStep, handleSubmit }: Props) => {
-	if (isSubmitted) return null;
+const Footer = ({ step, handleBack, handleNextStep }: Props) => {
+	const formCtx = useContext(formContext);
+	if (formCtx.isSubmitted) return null;
 	return (
 		<footer className={styles.footer}>
 			{step !== 1 && (
@@ -36,7 +36,7 @@ const Footer = ({ isSubmitted, step, handleBack, handleNextStep, handleSubmit }:
 					type='submit'
 					className={`${styles.confirmButton} button`}
 					form='form'
-					onClick={handleSubmit}
+					onClick={formCtx.handleSubmit}
 				>
 					Confirm
 				</button>
