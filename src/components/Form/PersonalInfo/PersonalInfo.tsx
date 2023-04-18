@@ -1,8 +1,8 @@
 /* eslint-disable indent */
 import styles from './personalInfo.module.scss';
-import SectionHeading from './SectionHeading';
+import SectionHeading from '../../Header/SectionHeading';
 import { ChangeEvent, useContext } from 'react';
-import formContext from '../store/form-context';
+import formContext from '../../../store/form-context';
 
 
 const PersonalInfo = () => {

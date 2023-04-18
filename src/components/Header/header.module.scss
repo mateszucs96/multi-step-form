@@ -1,15 +1,15 @@
-@import '../variables';
+@import '../../variables';
 
 .header {
   display: flex;
   justify-content: center;
 
-  background: url('../assets/images/bg-sidebar-mobile.svg') 50% / cover no-repeat;
+  background: url('../../assets/images/bg-sidebar-mobile.svg') 50% / cover no-repeat;
 
   height: 17.2rem;
 
   @media (min-width: $md-breakpoint) {
-    background: url('../assets/images/bg-sidebar-desktop.svg') no-repeat;
+    background: url('../../assets/images/bg-sidebar-desktop.svg') no-repeat;
     grid-row: 1 / span 2;
     justify-content: flex-start;
     height: auto;

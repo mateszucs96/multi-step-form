@@ -1,11 +1,11 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 import styles from './plans.module.scss';
-import SectionHeading from './SectionHeading';
-import { PLANS } from '../store/options';
+import SectionHeading from '../../Header/SectionHeading';
+import { PLANS } from '../../../store/options';
 import React, { useContext } from 'react';
 import Plan from './Plan';
-import { Inputs } from '../hooks/useForm';
-import formContext from '../store/form-context';
+import { Inputs } from '../../../hooks/useForm';
+import formContext from '../../../store/form-context';
 
 const Plans = () => {
 	const formCtx = useContext(formContext);

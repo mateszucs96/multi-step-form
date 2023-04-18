@@ -1,6 +1,6 @@
 import React, { MouseEventHandler, useContext } from 'react';
 import styles from './footer.module.scss';
-import formContext from '../store/form-context';
+import formContext from '../../store/form-context';
 
 type Props = {
 	step: number;

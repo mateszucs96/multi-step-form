@@ -1,7 +1,7 @@
 import React from 'react';
-import SectionHeading from './SectionHeading';
+import SectionHeading from '../../Header/SectionHeading';
 import styles from './addOns.module.scss';
-import { ADDONS } from '../store/options';
+import { ADDONS } from '../../../store/options';
 import AddOn from './AddOn';
 
 

@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
-import Footer from './components/Footer';
-import Form from './components/Form';
-import Header from './components/Header';
+import Footer from './components/Footer/Footer';
+import Form from './components/Form/Form';
+import Header from './components/Header/Header';
 import ThankYou from './components/ThankYou';
 import formContext from './store/form-context';
 
@@ -23,7 +23,7 @@ function App() {
 	const handleChange = () => {
 		setStep(2);
 	};
-	console.log(formCtx.isSubmitted);
+	console.log(formCtx);
 
 	return (
 		<div className='App'>

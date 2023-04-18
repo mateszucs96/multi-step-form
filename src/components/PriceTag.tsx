@@ -1,4 +1,4 @@
-import styles from './summary.module.scss';
+import styles from './Form/Summary/summary.module.scss';
 
 type Props = {
 	isMonthly: boolean;

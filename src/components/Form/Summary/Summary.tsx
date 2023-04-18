@@ -1,10 +1,10 @@
-import SectionHeading from './SectionHeading';
-import { ADDONS, PLANS } from '../store/options';
-import { Inputs } from '../hooks/useForm';
+import SectionHeading from '../../Header/SectionHeading';
+import { ADDONS, PLANS } from '../../../store/options';
+import { Inputs } from '../../../hooks/useForm';
 import styles from './summary.module.scss';
-import PriceTag from './PriceTag';
+import PriceTag from '../../PriceTag';
 import { useContext } from 'react';
-import formContext from '../store/form-context';
+import formContext from '../../../store/form-context';
 
 type Props = {
 	handleChange: () => void;

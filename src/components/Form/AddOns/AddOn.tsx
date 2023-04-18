@@ -1,8 +1,8 @@
 import styles from './addOns.module.scss';
 import React, { ChangeEvent, useContext } from 'react';
-import { Inputs } from '../hooks/useForm';
-import PriceTag from './PriceTag';
-import formContext from '../store/form-context';
+import { Inputs } from '../../../hooks/useForm';
+import PriceTag from '../../PriceTag';
+import formContext from '../../../store/form-context';
 
 type Props = {
 	name: string;
