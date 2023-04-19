@@ -19,16 +19,11 @@ const FormContext = React.createContext({
 		},
 	},
 	isSubmitted: false,
-	handleInputChange: (e: ChangeEvent<HTMLInputElement>) => {
-	},
-	handlePlanSelect: (e: React.MouseEvent<HTMLDivElement>) => {
-	},
-	handlePlanToggle: () => {
-	},
-	handleCheckboxes: (e: ChangeEvent<HTMLInputElement>) => {
-	},
-	handleSubmit: (e: FormEvent<HTMLFormElement>) => {
-	},
+	handleInputChange: (e: ChangeEvent<HTMLInputElement>): void => undefined,
+	handlePlanSelect: (e: React.MouseEvent<HTMLDivElement>): void => undefined,
+	handlePlanToggle: (): void => undefined,
+	handleCheckboxes: (e: ChangeEvent<HTMLInputElement>): void => undefined,
+	handleSubmit: (e: FormEvent<HTMLFormElement>): void => undefined,
 
 });
 

@@ -1,43 +1,119 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Simulate } from 'react-dom/test-utils';
+import error = Simulate.error;
 
 export const useValidation = () => {
-	const [emailError, setEmailError] = useState('');
-	const [nameError, setNameError] = useState('');
-	const [phoneNumberError, setPhoneNumberError] = useState('');
+	const [touched, setTouched] = useState({
+		name: false,
+		email: false,
+		phoneNumber: false,
+	});
+	const [errors, setErrors] = useState({
+		name: {
+			isValid: false,
+			message: 'Required',
+		},
+		email: {
+			isValid: false,
+			message: 'Required',
+		},
+		phoneNumber: {
+			isValid: false,
+			message: 'Required',
+		},
+	});
 
-	function validateEmail(value) {
-		let error;
+	const validateEmail = (value: string) => {
 		if (!value) {
-			error = 'Required';
+			setErrors(prevState => ({
+				...prevState,
+				email: {
+					isValid: false,
+					message: 'Required',
+				},
+			}));
 		} else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
-			error = 'Invalid email address';
-		}
-		setEmailError(error);
-	}
+			setErrors(prevState => ({
+				...prevState,
+				email: {
+					isValid: false,
+					message: 'Invalid email',
+				},
 
-	function validateName(value) {
-		let error;
-		if (!value) {
-			error = 'Required';
+			}));
+		} else {
+			setErrors(prevState => ({
+				...prevState,
+				email: {
+					isValid: true,
+					message: '',
+				},
+			}));
 		}
-		setNameError(error);
-		return nameError;
-	}
 
-	function validatePhoneNumber(value) {
-		let error;
+	};
+
+	const validateName = (value: string) => {
 		if (!value) {
-			error = 'Required';
+			console.log('no');
+			setErrors(prevState => ({
+				...prevState,
+				name: {
+					isValid: false,
+					message: 'Required',
+				},
+			}));
+		} else {
+			setErrors(prevState => ({
+				...prevState,
+				name: {
+					isValid: true,
+					message: '',
+				},
+			}));
+		}
+
+	};
+
+	const validatePhoneNumber = (value: string) => {
+		if (!value) {
+			setErrors(prevState => ({
+				...prevState,
+				phoneNumber: {
+					isValid: false,
+					message: 'Required',
+				},
+
+			}));
 		} else if (!/^(?=.*[0-9])[+0-9]+$/i.test(value)) {
-			error = 'Invalid phone number';
+			setErrors(prevState => ({
+				...prevState,
+				phoneNumber: {
+					isValid: false,
+					message: 'Invalid phone number',
+				},
+
+			}));
+		} else {
+			setErrors(prevState => ({
+				...prevState,
+				phoneNumber: {
+					isValid: true,
+					message: '',
+				},
+			}));
 		}
-		setPhoneNumberError(error);
-	}
+
+	};
+
+	useEffect(() => {
+		console.log(errors);
+	}, [errors]);
 
 	return {
-		nameError,
-		emailError,
-		phoneNumberError,
+		touched,
+		setTouched,
+		errors,
 		validateName,
 		validateEmail,
 		validatePhoneNumber,

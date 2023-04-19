@@ -8,7 +8,11 @@ type Props = {
 	handleNextStep: MouseEventHandler<HTMLButtonElement>;
 };
 
-const Footer = ({ step, handleBack, handleNextStep }: Props) => {
+const Footer = ({
+									step,
+									handleBack,
+									handleNextStep,
+								}: Props) => {
 	const formCtx = useContext(formContext);
 	if (formCtx.isSubmitted) return null;
 	return (

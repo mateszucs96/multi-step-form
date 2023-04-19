@@ -1,9 +1,12 @@
-import formContext from './form-context';
 import FormContext from './form-context';
-import React, { ChangeEvent, ReactNode, useState } from 'react';
 import { useForm } from '../hooks/useForm';
+import { ReactNode } from 'react';
 
-const FormProvider = ({ children }) => {
+type Props = {
+	children: ReactNode;
+}
+
+const FormProvider = ({ children }: Props) => {
 	const {
 		formInput,
 		handleInputChange,

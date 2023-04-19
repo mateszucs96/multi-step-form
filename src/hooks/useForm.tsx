@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 
 export type Inputs = {
 	info: {
@@ -11,7 +11,9 @@ export type Inputs = {
 		isMonthly: boolean;
 	}
 	addOns: {
-		[key: string]: boolean;
+		'Online service': boolean,
+		'Larger storage': boolean,
+		'Customizable profile': boolean,
 	}
 }
 
