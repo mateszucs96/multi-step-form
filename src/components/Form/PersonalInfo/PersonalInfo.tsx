@@ -3,8 +3,15 @@ import styles from './personalInfo.module.scss';
 import SectionHeading from '../../Header/SectionHeading';
 import { ChangeEvent, useContext, useEffect } from 'react';
 import formContext from '../../../store/form-context';
+import { Errors, Touched } from '../../../hooks/useValidation';
 
 type Props = {
+	errors: Errors;
+	validateName: (value: string) => void;
+	validateEmail: (value: string) => void;
+	validatePhoneNumber: (value: string) => void;
+	touched: Touched;
+
 	setTouched: React.Dispatch<React.SetStateAction<{ name: boolean, email: boolean, phoneNumber: boolean }>>;
 }
 

@@ -1,19 +1,16 @@
-import React, { MouseEventHandler, useContext } from 'react';
-import styles from './footer.module.scss';
+import styles from './buttonWrapper.module.scss';
+import React, { useContext } from 'react';
 import formContext from '../../store/form-context';
 
 type Props = {
 	step: number;
-	handleBack: MouseEventHandler<HTMLButtonElement>;
-	handleNextStep: MouseEventHandler<HTMLButtonElement>;
-};
+	handleNextStep: () => void;
+	handleBack: () => void;
+}
 
-const Footer = ({
-									step,
-									handleBack,
-									handleNextStep,
-								}: Props) => {
+const ButtonWrapper = ({ step, handleNextStep, handleBack }: Props) => {
 	const formCtx = useContext(formContext);
+
 	if (formCtx.isSubmitted) return null;
 	return (
 		<footer className={styles.footer}>
@@ -49,4 +46,4 @@ const Footer = ({
 	);
 };
 
-export default Footer;
+export default ButtonWrapper;

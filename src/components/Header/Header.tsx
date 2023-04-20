@@ -1,7 +1,8 @@
 import styles from './header.module.scss';
 import Step from './Step';
 
-const Header = ({ step }: { step: number }) => {
+const Header = ({ stepHook }: { stepHook: [number, React.Dispatch<React.SetStateAction<number>>] }) => {
+	const [step, _] = stepHook;
 	return (
 		<header className={styles.header}>
 			<div className={styles.steps}>

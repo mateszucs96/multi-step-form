@@ -2,13 +2,30 @@ import { useEffect, useState } from 'react';
 import { Simulate } from 'react-dom/test-utils';
 import error = Simulate.error;
 
+export type Touched = {
+	name: boolean;
+	email: boolean;
+	phoneNumber: boolean;
+}
+
+export type Error = {
+	isValid: boolean;
+	message: string;
+}
+
+export type Errors = {
+	name: Error;
+	email: Error;
+	phoneNumber: Error;
+}
+
 export const useValidation = () => {
 	const [touched, setTouched] = useState({
 		name: false,
 		email: false,
 		phoneNumber: false,
 	});
-	const [errors, setErrors] = useState({
+	const [errors, setErrors] = useState<Errors>({
 		name: {
 			isValid: false,
 			message: 'Required',
