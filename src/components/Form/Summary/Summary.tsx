@@ -1,6 +1,5 @@
 import SectionHeading from '../../Header/SectionHeading';
 import { ADDONS, PLANS } from '../../../store/options';
-import { Inputs } from '../../../hooks/useForm';
 import styles from './summary.module.scss';
 import PriceTag from '../../PriceTag';
 import { useContext } from 'react';

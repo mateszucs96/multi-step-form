@@ -7,7 +7,7 @@ export type Inputs = {
 		phoneNumber: string;
 	}
 	plan: {
-		selected: number;
+		selected: number | null;
 		isMonthly: boolean;
 	}
 	addOns: {
@@ -25,7 +25,7 @@ export const useForm = () => {
 			phoneNumber: '',
 		},
 		plan: {
-			selected: 0,
+			selected: null,
 			isMonthly: true,
 		},
 		addOns: {

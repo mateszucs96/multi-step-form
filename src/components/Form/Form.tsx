@@ -8,15 +8,26 @@ import formContext from '../../store/form-context';
 import { useValidation } from '../../hooks/useValidation';
 import ButtonWrapper from '../Button/ButtonWrapper';
 
-
 const FORM_STEPS = 4;
 
-const Form = ({ stepHook }: { stepHook: [number, React.Dispatch<React.SetStateAction<number>>] }) => {
+const Form = ({
+	stepHook,
+}: {
+	stepHook: [number, React.Dispatch<React.SetStateAction<number>>];
+}) => {
 	const formCtx = useContext(formContext);
 	const [step, setStep] = stepHook;
-	const { touched, setTouched, errors, validateName, validateEmail, validatePhoneNumber } = useValidation();
+	const {
+		touched,
+		setTouched,
+		errors,
+		validateName,
+		validateEmail,
+		validatePhoneNumber,
+	} = useValidation();
 	const handleNextStep = () => {
 		if (step >= FORM_STEPS) return;
+		if (step === 2 && formCtx.formInput.plan.selected === null) return;
 		setTouched({
 			name: true,
 			email: true,
@@ -28,8 +39,8 @@ const Form = ({ stepHook }: { stepHook: [number, React.Dispatch<React.SetStateAc
 			validateName(formCtx.formInput.info.name);
 			validatePhoneNumber(formCtx.formInput.info.phoneNumber);
 		}
+		console.log(formCtx.formInput.plan.selected);
 		setStep((prev) => prev + 1);
-
 	};
 
 	const handleBack = () => {
@@ -43,21 +54,35 @@ const Form = ({ stepHook }: { stepHook: [number, React.Dispatch<React.SetStateAc
 	return (
 		<main>
 			<div>
-				<form className={styles.infoForm} onSubmit={(e) => {
-					formCtx.handleSubmit(e);
-				}} id='form'>
-					{step === 1 && (<PersonalInfo errors={errors} validateName={validateName} validateEmail={validateEmail}
-																				validatePhoneNumber={validatePhoneNumber} touched={touched}
-																				setTouched={setTouched}
-					/>)}
-					{step === 2 &&
-						<Plans />}
+				<form
+					className={styles.infoForm}
+					onSubmit={(e) => {
+						formCtx.handleSubmit(e);
+					}}
+					id="form"
+				>
+					{step === 1 && (
+						<PersonalInfo
+							errors={errors}
+							validateName={validateName}
+							validateEmail={validateEmail}
+							validatePhoneNumber={validatePhoneNumber}
+							touched={touched}
+							setTouched={setTouched}
+						/>
+					)}
+					{step === 2 && <Plans />}
 					{step === 3 && <AddOns />}
 					{step === 4 && <Summary handleChange={handleChange} />}
-					<ButtonWrapper step={step} handleNextStep={handleNextStep} handleBack={handleBack} />
+					<ButtonWrapper
+						step={step}
+						handleNextStep={handleNextStep}
+						handleBack={handleBack}
+					/>
 				</form>
 			</div>
-		</main>);
+		</main>
+	);
 };
 
 export default Form;
