@@ -36,7 +36,7 @@ const Plan = ({
 			}}
 			data-attr={id}
 		>
-			<img src={images[id - 1]} alt="Arcade-icon" />
+			<img src={images[id - 1]} alt={`${title} icon`} />
 			<div className={styles.planInfo}>
 				<h3 className={styles.title}>{title}</h3>
 				<PriceTag isMonthly={isMonthly} price={price} fontColor={'#9699AA'} />
