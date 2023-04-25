@@ -23,8 +23,6 @@ const FormContext = React.createContext({
 	handlePlanToggle: (): void => undefined,
 	handleCheckboxes: (e: ChangeEvent<HTMLInputElement>): void => undefined,
 	handleSubmit: (e: FormEvent<HTMLFormElement>): void => undefined,
-
 });
 
 export default FormContext;
-

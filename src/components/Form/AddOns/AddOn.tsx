@@ -1,5 +1,5 @@
 import styles from './addOns.module.scss';
-import React, { ChangeEvent, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Inputs } from '../../../hooks/useForm';
 import PriceTag from '../../PriceTag';
 import formContext from '../../../store/form-context';
@@ -10,7 +10,6 @@ type Props = {
 	price: number;
 };
 const AddOn = ({ name, description, price }: Props) => {
-	const board = [];
 	const formCtx = useContext(formContext);
 	return (
 		<div className={`${styles.onlineService} ${styles.checkboxContainer}`}>

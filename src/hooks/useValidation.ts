@@ -1,23 +1,21 @@
 import { useEffect, useState } from 'react';
-import { Simulate } from 'react-dom/test-utils';
-import error = Simulate.error;
 
 export type Touched = {
 	name: boolean;
 	email: boolean;
 	phoneNumber: boolean;
-}
+};
 
 export type Error = {
 	isValid: boolean;
 	message: string;
-}
+};
 
 export type Errors = {
 	name: Error;
 	email: Error;
 	phoneNumber: Error;
-}
+};
 
 export const useValidation = () => {
 	const [touched, setTouched] = useState({
@@ -42,7 +40,7 @@ export const useValidation = () => {
 
 	const validateEmail = (value: string) => {
 		if (!value) {
-			setErrors(prevState => ({
+			setErrors((prevState) => ({
 				...prevState,
 				email: {
 					isValid: false,
@@ -50,16 +48,15 @@ export const useValidation = () => {
 				},
 			}));
 		} else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
-			setErrors(prevState => ({
+			setErrors((prevState) => ({
 				...prevState,
 				email: {
 					isValid: false,
 					message: 'Invalid email',
 				},
-
 			}));
 		} else {
-			setErrors(prevState => ({
+			setErrors((prevState) => ({
 				...prevState,
 				email: {
 					isValid: true,
@@ -67,13 +64,12 @@ export const useValidation = () => {
 				},
 			}));
 		}
-
 	};
 
 	const validateName = (value: string) => {
 		if (!value) {
 			console.log('no');
-			setErrors(prevState => ({
+			setErrors((prevState) => ({
 				...prevState,
 				name: {
 					isValid: false,
@@ -81,7 +77,7 @@ export const useValidation = () => {
 				},
 			}));
 		} else {
-			setErrors(prevState => ({
+			setErrors((prevState) => ({
 				...prevState,
 				name: {
 					isValid: true,
@@ -89,30 +85,27 @@ export const useValidation = () => {
 				},
 			}));
 		}
-
 	};
 
 	const validatePhoneNumber = (value: string) => {
 		if (!value) {
-			setErrors(prevState => ({
+			setErrors((prevState) => ({
 				...prevState,
 				phoneNumber: {
 					isValid: false,
 					message: 'Required',
 				},
-
 			}));
 		} else if (!/^(?=.*[0-9])[+0-9]+$/i.test(value)) {
-			setErrors(prevState => ({
+			setErrors((prevState) => ({
 				...prevState,
 				phoneNumber: {
 					isValid: false,
 					message: 'Invalid phone number',
 				},
-
 			}));
 		} else {
-			setErrors(prevState => ({
+			setErrors((prevState) => ({
 				...prevState,
 				phoneNumber: {
 					isValid: true,
@@ -120,7 +113,6 @@ export const useValidation = () => {
 				},
 			}));
 		}
-
 	};
 
 	useEffect(() => {

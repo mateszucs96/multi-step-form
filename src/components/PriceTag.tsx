@@ -4,12 +4,11 @@ type Props = {
 	isMonthly: boolean;
 	price: number;
 	fontColor: string;
-	fontWeight: string;
-}
+};
 
-const PriceTag = ({ isMonthly, price, fontColor, fontWeight }: Props) => {
+const PriceTag = ({ isMonthly, price, fontColor }: Props) => {
 	return (
-		<p className={styles.price} style={{ color: fontColor, fontWeight: fontWeight }}>
+		<p className={styles.price} style={{ color: fontColor }}>
 			$<span>{isMonthly ? price : price * 10}</span>/{isMonthly ? 'mo' : 'yr'}
 		</p>
 	);
